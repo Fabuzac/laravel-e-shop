@@ -104,7 +104,7 @@
 					</div>
 				</div>
 			</section>
-			<!-- End Best Seller -->
+			<!-- End Best Seller --> 
 		</div>
 	</div>
 </div>
