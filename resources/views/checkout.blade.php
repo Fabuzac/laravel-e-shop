@@ -46,13 +46,7 @@
                 </div>
             </form>
         </div>
-        <div class="cupon_area">
-            <div class="check_title">
-                <h2>Have a coupon? <a href="#">Click here to enter your code</a></h2>
-            </div>
-            <input type="text" placeholder="Enter coupon code">
-            <a class="tp_btn" href="#">Apply Coupon</a>
-        </div>
+        
         <div class="billing_details">
             <div class="row">
                 <div class="col-lg-8">
@@ -161,6 +155,19 @@
                             <a href="#">terms & conditions*</a>
                         </div>
                         <a class="primary-btn" href="#">Proceed to Paypal</a>
+                    </div>
+                    <div class="coupon my-3">
+                        <div class="code">
+                            <p>Have a code ?</p>
+                            <form action="#" method="POST">
+                                <div class="d-flex  align-items-center contact_form">
+                                    <input type="text" name="coupon_code" id="coupon_code" class="form-control" placeholder="Coupon Code">
+                                    <button class="primary-btn my-3" type="submit">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

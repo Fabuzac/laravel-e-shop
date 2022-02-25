@@ -55,4 +55,49 @@ class HomeController extends Controller
     {
         return view('orders');
     }
+
+    public function blog() 
+    {
+        return view('blog');
+    }
+
+    public function category() 
+    {
+        return view('category');
+    }
+
+    public function confirmation() 
+    {
+        return view('confirmation');
+    }
+
+    public function product() 
+    {
+        return view('product');
+    }
+
+    public function thanks() 
+    {
+        return view('thanks');
+    }
+
+    public function tracking() 
+    {
+        return view('tracking');
+    }
+
+    public function elements() 
+    {
+        return view('elements');
+    }
+
+    public function singleBlog() 
+    {
+        return view('single-blog');
+    }
+
+    public function login() 
+    {
+        return view('login');
+    }
 }
