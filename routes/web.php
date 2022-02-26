@@ -39,6 +39,7 @@ Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
 Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
 
 Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/register', [HomeController::class, 'register'])->name('register');
 
 
 //========

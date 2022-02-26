@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div class="col-lg-4">
                     <div class="categories_post">
                         <img src="img/blog/cat-post/cat-post-2.jpg" alt="post">
