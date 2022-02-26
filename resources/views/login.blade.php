@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 	<!-- Start Banner Area -->
 	<section class="banner-area organic-breadcrumb">
