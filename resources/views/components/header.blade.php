@@ -16,10 +16,14 @@
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                         <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                             aria-expanded="false">Shop</a>
+                            <a href="{{ route('shop.index') }}" 
+                               class="nav-link dropdown-toggle" 
+                               data-toggle="dropdown" 
+                               role="button" 
+                               aria-haspopup="true"
+                               aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{ route('category') }}">Shop Category</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('shop.index') }}">Shop Category</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('orders') }}">Product Details</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('checkout.index') }}">Product Checkout</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('cart.index') }}">Shopping Cart</a></li>
@@ -35,8 +39,12 @@
                             </ul>
                         </li>
                         <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                             aria-expanded="false">Pages</a>
+                            <a href="#" 
+                               class="nav-link dropdown-toggle" 
+                               data-toggle="dropdown" 
+                               role="button" 
+                               aria-haspopup="true"
+                               aria-expanded="false">Pages</a>
                             <ul class="dropdown-menu">
                                 <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('tracking') }}">Tracking</a></li>
@@ -81,24 +89,21 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
+                        <li class="nav-item"><a href="#t" class="cart"><i class="fa fa-shopping-bag"></i></a></li>
                         <li class="nav-item">
-                            <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
+                            <button class="search"><i class="fa fa-search" id="search"></i></button>
                         </li>
                     </ul>
                 </div>
             </div>
-
-            
-
         </nav>
     </div>
     <div class="search_input" id="search_input_box">
         <div class="container">
             <form class="d-flex justify-content-between">
                 <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                <button type="submit" class="btn"></button>
-                <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
+                <button type="submit" class="btn"></button>                
+                <i class="fa fa-times" id="close_search" title="Close Search"></i>
             </form>
         </div>
     </div>

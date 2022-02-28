@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,22 +24,16 @@ class HomeController extends Controller
      */
     public function index() 
     {
-        return view('home');
+        $products = Product::inRandomOrder()->take(8)->get();
+        
+        return view('home', [
+            'products' => $products,
+        ]);
     }
 
     public function contact() 
     {
         return view('contact');
-    }
-
-    public function shop() 
-    {
-        return view('shop');
-    }
-
-    public function shopShow() 
-    {
-        return view('product');
     }
 
     public function checkout() 
@@ -69,12 +64,7 @@ class HomeController extends Controller
     public function confirmation() 
     {
         return view('confirmation');
-    }
-
-    public function product() 
-    {
-        return view('product');
-    }
+    }   
 
     public function thanks() 
     {

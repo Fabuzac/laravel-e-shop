@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ShopController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +22,11 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Main pages
-Route::get('/shop', [HomeController::class, 'shop'])->name('shop.index');
-Route::get('/shop/single-product', [HomeController::class, 'shopShow'])->name('shop.show');
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/shop/{product}', [ShopController::class, 'show'])->name('shop.show');
+
+//Route::get('/shop/single-product', [HomeController::class, 'product'])->name('shop.show');
 Route::get('/category', [HomeController::class, 'category'])->name('category');
-Route::get('/product', [HomeController::class, 'product'])->name('product');
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/elements', [HomeController::class, 'elements'])->name('elements');
