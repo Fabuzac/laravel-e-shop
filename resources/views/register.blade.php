@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-					div class="card-body">
+					
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
