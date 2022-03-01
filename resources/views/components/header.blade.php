@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="{{ route('home') }}"><img src="img/logo.png" alt=""></a>
+                <a class="navbar-brand logo_h" href="{{ route('home') }}"><img src="{{ asset('img/logo.png') }}" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -23,10 +23,10 @@
                                aria-haspopup="true"
                                aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{ route('shop.index') }}">Shop Category</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('orders') }}">Product Details</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('shop.index') }}">Shop</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('cart.index') }}">Cart</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('checkout.index') }}">Product Checkout</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('cart.index') }}">Shopping Cart</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('orders') }}">Product Order</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('confirmation') }}">Confirmation</a></li>
                             </ul>
                         </li>
@@ -89,9 +89,15 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="#t" class="cart"><i class="fa fa-shopping-bag"></i></a></li>
                         <li class="nav-item">
-                            <button class="search"><i class="fa fa-search" id="search"></i></button>
+                            <a href="{{ route('cart.index') }}" class="cart">
+                                <i class="fa fa-shopping-cart" style="color:black;font-size:19px;"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="search">
+                                <i class="fa fa-search" style="color:black;font-size:19px;" id="search"></i>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -103,7 +109,7 @@
             <form class="d-flex justify-content-between">
                 <input type="text" class="form-control" id="search_input" placeholder="Search Here">
                 <button type="submit" class="btn"></button>                
-                <i class="fa fa-times" id="close_search" title="Close Search"></i>
+                <i class="fa fa-times" style="color:black;font-size:20px;" id="close_search" title="Close Search"></i>
             </form>
         </div>
     </div>

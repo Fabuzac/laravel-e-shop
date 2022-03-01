@@ -37,16 +37,16 @@
                                     <a href="#">Lifestyle</a>
                                 </div>
                                 <ul class="blog_meta list">
-                                    <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                                    <li><a href="#">12 Dec, 2018<i class="lnr lnr-calendar-full"></i></a></li>
-                                    <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                                    <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                                    <li><a href="#">Mark wiens<i class="fa fa-user"></i></a></li>
+                                    <li><a href="#">12 Dec, 2018<i class="fa fa-calendar"></i></a></li>
+                                    <li><a href="#">1.2M Views<i class="fa fa-eye"></i></a></li>
+                                    <li><a href="#">06 Comments<i class="fa fa-comment"></i></a></li>
                                 </ul>
                                 <ul class="social-links">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-github"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-github"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-reddit"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -274,10 +274,10 @@
                             <h4>Charlie Barber</h4>
                             <p>Senior blog writer</p>
                             <div class="social_icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-github"></i></a>
-                                <a href="#"><i class="fa fa-behance"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
                             </div>
                             <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you
                                 should have to spend money on boot camp when you can get. Boot camps have itssuppor

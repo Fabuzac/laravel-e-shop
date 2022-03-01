@@ -40,7 +40,7 @@
                                 <div class="media">
                                     <div class="d-flex">
                                         <a href="#">
-                                            <img class="img-thumbnail w-20" src="{{ asset('img/logo.png')}}" alt="">
+                                            <img class="img-thumbnail w-20" src="{{ asset('img/category/c3.jpg')}}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -58,10 +58,23 @@
                                 <div class="product_count"> 
                                 <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:"
                                         class="input-text qty">
-                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                                        class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                                        class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                                    <button 
+                                        onclick="var result = document.getElementById('sst');
+                                                 var sst = result.value;
+                                                 if( !isNaN( sst )) result.value++;
+                                                 return false;"
+                                        class="increase items-count" type="button">
+                                        <i class="lnr lnr-chevron-up"></i>
+                                    </button>
+
+                                    <button 
+                                        onclick="var result = document.getElementById('sst');
+                                                 var sst = result.value; 
+                                                 if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;
+                                                 return false;"
+                                        class="reduced items-count" type="button">
+                                        <i class="lnr lnr-chevron-down"></i>
+                                    </button>
                                 </div>
                             </td>
                             <td>
@@ -107,8 +120,8 @@
                     </tbody>
                 </table>
                 <div class="checkout_btn_inner d-flex align-items-center justify-content-around mb-3">
-                    <a class="gray_btn" href="#">Continue Shopping</a>
-                    <a class="primary-btn" href="#">Proceed to checkout</a>
+                    <a class="gray_btn" href="{{ route('home') }}">Continue Shopping</a>
+                    <a class="primary-btn" href="{{ route('checkout.index') }}">Proceed to checkout</a>
                 </div>
             </div>
         </div>

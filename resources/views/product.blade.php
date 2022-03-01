@@ -8,9 +8,9 @@
 			<div class="col-first">
 				<h1>Product Details Page</h1>
 				<nav class="d-flex align-items-center">
-					<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-					<a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
-					<a href="single-product.html">product-details</a>
+					<a href="{{ route('home') }}"> Home <i class="fa fa-angle-right"></i></a>
+					<a href="{{ route('shop.index') }}"> Shop <i class="fa fa-angle-right"></i></a>
+					<a href="#"> Product Details</a>
 				</nav>
 			</div>
 		</div>
@@ -24,13 +24,13 @@
 			<div class="col-lg-6">
 				<div class="s_Product_carousel">
 					<div class="single-prd-item">
-						<img class="img-fluid" src="{{ asset('img/product/p2.jpg') }}" alt="">
+						<img class="img-fluid" src="{{ asset('img/product/p5.jpg') }}" alt="">
 					</div>
 					<div class="single-prd-item">
-						<img class="img-fluid" src="{{ asset('img/product/p2.jpg') }}" alt="">
+						<img class="img-fluid" src="{{ asset('img/product/p7.jpg') }}" alt="">
 					</div>
 					<div class="single-prd-item">
-						<img class="img-fluid" src="{{ asset('img/product/p2.jpg') }}" alt="">
+						<img class="img-fluid" src="{{ asset('img/product/p8.jpg') }}" alt="">
 					</div>
 				</div>
 			</div>
@@ -73,11 +73,7 @@
 			<li class="nav-item">
 				<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
 				 aria-selected="false">Specification</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-				 aria-selected="false">Comments</a>
-			</li>
+			</li>			
 			<li class="nav-item">
 				<a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
 				 aria-selected="false">Reviews</a>
@@ -85,12 +81,7 @@
 		</ul>
 		<div class="tab-content" id="myTabContent">
 			<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-				<p>{{ $product->description }}</p>
-				<p>It is often frustrating to attempt to plan meals that are designed for one. Despite this fact, we are seeing
-					more and more recipe books and Internet websites that are dedicated to the act of cooking for one. Divorce and
-					the death of spouses or grown children leaving for college are all reasons that someone accustomed to cooking for
-					more than one would suddenly need to learn how to adjust all the cooking practices utilized before into a
-					streamlined plan of cooking that is more efficient for one person creating less</p>
+				<p>{{ $product->description }}</p>				
 			</div>
 			<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 				<div class="table-responsive">
@@ -171,7 +162,7 @@
 							<div class="review_item">
 								<div class="media">
 									<div class="d-flex">
-										<img src="img/product/review-1.png" alt="">
+										<img src="{{ asset('img/product/review-1.png') }}" alt="">
 									</div>
 									<div class="media-body">
 										<h4>Blake Ruiz</h4>
@@ -186,7 +177,7 @@
 							<div class="review_item reply">
 								<div class="media">
 									<div class="d-flex">
-										<img src="img/product/review-2.png" alt="">
+										<img src="{{ asset('img/product/review-2.png') }}" alt="">
 									</div>
 									<div class="media-body">
 										<h4>Blake Ruiz</h4>
@@ -201,7 +192,7 @@
 							<div class="review_item">
 								<div class="media">
 									<div class="d-flex">
-										<img src="img/product/review-3.png" alt="">
+										<img src="{{ asset('img/product/review-3.png') }}" alt="">
 									</div>
 									<div class="media-body">
 										<h4>Blake Ruiz</h4>
@@ -215,36 +206,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6">
-						<div class="review_box">
-							<h4>Post a comment</h4>
-							<form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-								<div class="col-md-12">
-									<div class="form-group">
-										<input type="text" class="form-control" id="name" name="name" placeholder="Your Full name">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input type="text" class="form-control" id="number" name="number" placeholder="Phone Number">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<textarea class="form-control" name="message" id="message" rows="1" placeholder="Message"></textarea>
-									</div>
-								</div>
-								<div class="col-md-12 text-right">
-									<button type="submit" value="submit" class="btn primary-btn">Submit Now</button>
-								</div>
-							</form>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 			<div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
@@ -262,16 +224,56 @@
 								<div class="rating_list">
 									<h3>Based on 3 Reviews</h3>
 									<ul class="list">
-										<li><a href="#">5 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-												 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-										<li><a href="#">4 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-												 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-										<li><a href="#">3 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-												 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-										<li><a href="#">2 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-												 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-										<li><a href="#">1 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-												 class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
+										<li>
+											<a href="#">5 Star 
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i> 01
+											</a>
+										</li>
+
+										<li>
+											<a href="#">4 Star 
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i> 01
+											</a>
+										</li>
+
+										<li>
+											<a href="#">3 Star 
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i> 01
+											</a>
+										</li>
+
+										<li>
+											<a href="#">2 Star 
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i> 05
+											</a>
+										</li>
+
+										<li>
+											<a href="#">1 Star 
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i> 01
+											</a>
+										</li>
+
 									</ul>
 								</div>
 							</div>
@@ -280,7 +282,7 @@
 							<div class="review_item">
 								<div class="media">
 									<div class="d-flex">
-										<img src="img/product/review-1.png" alt="">
+										<img src="{{ asset('img/product/review-1.png') }}" alt="">
 									</div>
 									<div class="media-body">
 										<h4>Blake Ruiz</h4>
@@ -298,7 +300,7 @@
 							<div class="review_item">
 								<div class="media">
 									<div class="d-flex">
-										<img src="img/product/review-2.png" alt="">
+										<img src="{{ asset('img/product/review-2.png') }}" alt="">
 									</div>
 									<div class="media-body">
 										<h4>Blake Ruiz</h4>
@@ -316,7 +318,7 @@
 							<div class="review_item">
 								<div class="media">
 									<div class="d-flex">
-										<img src="img/product/review-3.png" alt="">
+										<img src="{{ asset('img/product/review-3.png') }}" alt="">
 									</div>
 									<div class="media-body">
 										<h4>Blake Ruiz</h4>
@@ -348,22 +350,37 @@
 							<form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
 								<div class="col-md-12">
 									<div class="form-group">
-										<input type="text" class="form-control" id="name" name="name" placeholder="Your Full name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Full name'">
+										<input type="text"
+											   class="form-control"
+											   id="name" 
+											   name="name" 
+											   placeholder="Your Full name" 
+											   onfocus="this.placeholder = '' "
+											   onblur="this.placeholder = 'Your Full name'">
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<input type="email" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
+										<input type="email"
+											   class="form-control"
+											   id="email" 
+											   name="email" 
+											   placeholder="Email Address" 
+											   onfocus="this.placeholder = '' " 
+											   onblur="this.placeholder = 'Email Address'">
 									</div>
 								</div>
+								
 								<div class="col-md-12">
 									<div class="form-group">
-										<input type="text" class="form-control" id="number" name="number" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'">
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<textarea class="form-control" name="message" id="message" rows="1" placeholder="Review" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Review'"></textarea></textarea>
+										<textarea class="form-control"
+											   	  name="message" 
+												  id="message" 
+												  rows="1" 
+												  placeholder="Review" 
+												  onfocus="this.placeholder = '' " 
+												  onblur="this.placeholder = 'Review'"></textarea>
+										</textarea>
 									</div>
 								</div>
 								<div class="col-md-12 text-right">
@@ -385,9 +402,11 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6 text-center">
 				<div class="section-title">
-					<h1>Deals of the Week</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-						magna aliqua.</p>
+					<h1>Related Product</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -396,7 +415,7 @@
 				<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r1.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r1.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -408,7 +427,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r2.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r2.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -420,7 +439,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r3.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r3.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -432,7 +451,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r5.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r4.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -444,7 +463,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r6.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r5.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -456,7 +475,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r7.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r6.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -468,7 +487,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r9.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r7.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -480,7 +499,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r10.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r10.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -492,7 +511,7 @@
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="single-related-product d-flex">
-							<a href="#"><img src="img/r11.jpg" alt=""></a>
+							<a href="#"><img src="{{ asset('img/r11.jpg') }}" alt=""></a>
 							<div class="desc">
 								<a href="#" class="title">Black lace Heels</a>
 								<div class="price">
@@ -507,7 +526,7 @@
 			<div class="col-lg-3">
 				<div class="ctg-right">
 					<a href="#" target="_blank">
-						<img class="img-fluid d-block mx-auto" src="img/category/c5.jpg" alt="">
+						<img class="img-fluid d-block mx-auto" src="{{ asset('img/category/c3.jpg') }}" alt="">
 					</a>
 				</div>
 			</div>

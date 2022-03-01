@@ -37,11 +37,26 @@
 					<div class="head">Brands</div>
 					<form action="#">
 						<ul>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="apple" name="brand">
+								<label for="apple">Apple<span>(29)</span></label>
+							</li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="asus" name="brand">
+								<label for="asus">Asus<span>(29)</span></label>
+							</li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="gionee" name="brand">
+								<label for="gionee">Gionee<span>(19)</span></label>
+							</li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="micromax" name="brand">
+								<label for="micromax">Micromax<span>(19)</span></label>
+							</li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="samsung" name="brand">
+								<label for="samsung">Samsung<span>(19)</span></label>
+							</li>
 						</ul>
 					</form>
 				</div>
@@ -49,13 +64,26 @@
 					<div class="head">Color</div>
 					<form action="#">
 						<ul>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black
-									Leather<span>(29)</span></label></li>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black
-									with red<span>(19)</span></label></li>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-							<li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="black" name="color">
+								<label for="black">Black<span>(29)</span></label>
+							</li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="balckleather" name="color">
+								<label for="balckleather">Black Leather<span>(10)</span></label>
+							</li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="blackred" name="color">
+								<label for="blackred">Black	with red<span>(19)</span></label>
+								</li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="gold" name="color">
+								<label for="gold">Gold<span>(5)</span></label>
+							</li>
+							<li class="filter-list">
+								<input class="pixel-radio" type="radio" id="spacegrey" name="color">
+								<label for="spacegrey">Spacegrey<span>(19)</span></label>
+							</li>
 						</ul>
 					</form>
 				</div>
@@ -123,19 +151,20 @@
 								<div class="prd-bottom">
 
 									<a href="" class="social-info">
-										<span class="ti-bag"></span>
+										<span> <i class="fas fa-shopping-bag"></i> </span>
 										<p class="hover-text">add to bag</p>
 									</a>
 									<a href="" class="social-info">
-										<span class="lnr lnr-heart"></span>
+										<span> <i class="fas fa-heart"></i> </span>
 										<p class="hover-text">Wishlist</p>
 									</a>
 									<a href="" class="social-info">
-										<span class="lnr lnr-sync"></span>
+										<span> <i class="fa fa-code-compare"></i> </span>
+										
 										<p class="hover-text">compare</p>
 									</a>
 									<a href="" class="social-info">
-										<span class="lnr lnr-move"></span>
+										<span> <i class="fab fa-arrow-right-to-bracket"></i> </span>
 										<p class="hover-text">view more</p>
 									</a>
 								</div>

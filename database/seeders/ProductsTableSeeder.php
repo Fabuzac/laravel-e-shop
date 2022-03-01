@@ -21,9 +21,9 @@ class ProductsTableSeeder extends Seeder
         for ($i=0; $i < 10 ; $i++) { 
             Product::create([
                 'name' => $faker->catchPhrase,                
-                'details' => $faker->sentence($nbWords = 5),
+                'details' => $faker->sentence($nbWords = 20),
                 'price' => $faker->randomFloat($nbMaxDecimals = 2, $min=10, $max = 500), 
-                'description' => $faker->sentence($nbWords = 6, $variableNbWords = false),
+                'description' => $faker->sentence($nbWords = 50, $variableNbWords = false),
                 'category_id' => Category::inRandomOrder()->first()->id,
             ]);
         }
