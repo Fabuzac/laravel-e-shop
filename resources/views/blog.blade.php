@@ -83,10 +83,10 @@
                                         <a href="#">Lifestyle</a>
                                     </div>
                                     <ul class="blog_meta list">
-                                        <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">12 Dec, 2018<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a href="#">Mark wiens<i class="fa fa-user"></i></a></li>
+                                        <li><a href="#">12 Dec, 2018<i class="fa fa-calendar"></i></a></li>
+                                        <li><a href="#">1.2M Views<i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#">06 Comments<i class="fa fa-comment"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -115,10 +115,10 @@
                                         <a href="#">Lifestyle</a>
                                     </div>
                                     <ul class="blog_meta list">
-                                        <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">12 Dec, 2018<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a href="#">Mark wiens<i class="fa fa-user"></i></a></li>
+                                        <li><a href="#">12 Dec, 2018<i class="fa fa-calendar"></i></a></li>
+                                        <li><a href="#">1.2M Views<i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#">06 Comments<i class="fa fa-comment"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -147,10 +147,10 @@
                                         <a href="#">Lifestyle</a>
                                     </div>
                                     <ul class="blog_meta list">
-                                        <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">12 Dec, 2018<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a href="#">Mark wiens<i class="fa fa-user"></i></a></li>
+                                        <li><a href="#">12 Dec, 2018<i class="fa fa-calendar"></i></a></li>
+                                        <li><a href="#">1.2M Views<i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#">06 Comments<i class="fa fa-comment"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -179,10 +179,10 @@
                                         <a href="#">Lifestyle</a>
                                     </div>
                                     <ul class="blog_meta list">
-                                        <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">12 Dec, 2018<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a href="#">Mark wiens<i class="fa fa-user"></i></a></li>
+                                        <li><a href="#">12 Dec, 2018<i class="fa fa-calendar"></i></a></li>
+                                        <li><a href="#">1.2M Views<i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#">06 Comments<i class="fa fa-comment"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -211,10 +211,10 @@
                                         <a href="#">Lifestyle</a>
                                     </div>
                                     <ul class="blog_meta list">
-                                        <li><a href="#">Mark wiens<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">12 Dec, 2018<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
-                                        <li><a href="#">06 Comments<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a href="#">Mark wiens<i class="fa fa-user"></i></a></li>
+                                        <li><a href="#">12 Dec, 2018<i class="fa fa-calendar"></i></a></li>
+                                        <li><a href="#">1.2M Views<i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#">06 Comments<i class="fa fa-comment"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
