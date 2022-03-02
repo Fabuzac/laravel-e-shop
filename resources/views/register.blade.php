@@ -20,17 +20,7 @@
 	<!--================Login Box Area =================-->
 	<section class="login_box_area section_gap">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="login_box_img">
-						<img class="img-fluid" src="img/login.jpg" alt="">
-						<div class="hover">
-							<h4>New to our website?</h4>
-							<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
-							<a class="primary-btn" href="registration.html">Create an Account</a>
-						</div>
-					</div>
-				</div>
+			<div class="row">				
 				<div class="col-lg-6">
 					
                     <form method="POST" action="{{ route('register') }}">
