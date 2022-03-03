@@ -85,14 +85,4 @@ class HomeController extends Controller
     {
         return view('single-blog');
     }
-
-    public function login() 
-    {
-        return view('login');
-    }
-
-    public function register() 
-    {
-        return view('register');
-    }
 }
