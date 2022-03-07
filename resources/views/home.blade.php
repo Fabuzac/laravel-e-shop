@@ -15,14 +15,16 @@
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
 								<div class="add-bag d-flex align-items-center">
-									<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-									<span class="add-text text-uppercase">Add to Bag</span>
+									<a class="add-btn" href="">
+										<i class="fa fa-shopping-cart" style="color:black;font-size:19px;"></i>
+									</a>
+									<span class="add-text text-uppercase">Add to Cart</span>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-7">
 							<div class="banner-img">
-								<img class="img-fluid" src="img/banner/banner-img.png" alt="">
+								<img class="img-fluid img-home" src="img/banner/banner-img.png" alt="">
 							</div>
 						</div>
 					</div>
@@ -34,14 +36,16 @@
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
 								<div class="add-bag d-flex align-items-center">
-									<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+									<a class="add-btn" href="">
+										<i class="fa fa-shopping-cart" style="color:black;font-size:19px;"></i>
+									</a>
 									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-7">
 							<div class="banner-img">
-								<img class="img-fluid" src="img/banner/banner-img.png" alt="">
+								<img class="img-fluid img-home" src="img/running_shoes.png" alt="">
 							</div>
 						</div>
 					</div>
