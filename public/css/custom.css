@@ -6,3 +6,7 @@
     max-width: 80% !important;
     width: 70%;
 }
+
+.small-title {
+    font-size: 13px;
+}

@@ -166,7 +166,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<a href="{{ route('shop.show', $product->slug) }}">									
-								<img class="img-fluid" src="img/product/p1.jpg" alt="">
+								<img class="img-fluid" src="{{ Voyager::image($product->image) }}" alt="image product">
 							</a>	
 							<div class="product-details">
 								<h6>{{ $product->name }}</h6>
@@ -219,7 +219,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<a href="{{ route('shop.show', $product->slug) }}">									
-								<img class="img-fluid" src="img/product/p2.jpg" alt="">
+								<img class="img-fluid" src="{{ Voyager::image($product->image) }}" alt="image product">
 							</a>	
 							<div class="product-details">
 								<h6>{{ $product->name }}</h6>
@@ -243,12 +243,12 @@
 									<a href="" class="social-info">
 										<span> <i class="fab fa-arrow-right-to-bracket"></i> </span>
 										<p class="hover-text">view more</p>
-									</a>	
+									</a>										
 								</div>
 							</div>
 						</div>
 					</div>
-				@endforeach					
+				@endforeach						
 			</div>
 		</div>
 	</div>

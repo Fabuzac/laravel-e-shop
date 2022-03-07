@@ -33,10 +33,12 @@ class ShopController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
+        $products = Product::inRandomOrder()->take(6)->get();
         $category = Category::where('id', $product->category_id)->firstOrFail();
 
         return view('product', [
             'product' => $product,
+            'products' => $products,
             'category' => $category,
         ]);
     }
