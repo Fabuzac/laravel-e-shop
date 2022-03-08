@@ -18,6 +18,13 @@ class Product extends Model
         'category_id',
     ];
 
+    // Voyager Relationship
+    public function categoryId()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    // Get product Category
     public function category()
     {
         return $this->belongsTo(Category::class);

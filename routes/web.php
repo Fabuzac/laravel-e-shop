@@ -42,6 +42,11 @@ Route::get('/confirmation', [HomeController::class, 'confirmation'])->name('conf
 Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
 Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
 
+// Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
+// Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
+// Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
+
+
 //========
 // ADMIN =========================================================
 //========
