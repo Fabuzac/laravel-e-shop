@@ -36,21 +36,6 @@ class HomeController extends Controller
         return view('contact');
     }
 
-    public function checkout() 
-    {
-        return view('checkout');
-    }
-    
-    public function cart() 
-    {
-        return view('cart');
-    }
-
-    public function orders() 
-    {
-        return view('orders');
-    }
-
     public function blog() 
     {
         return view('blog');
@@ -84,5 +69,16 @@ class HomeController extends Controller
     public function singleBlog() 
     {
         return view('single-blog');
+    }
+
+    public function checkout() 
+    {
+        return view('checkout');
+    }
+    
+    
+    public function orders() 
+    {
+        return view('orders');
     }
 }

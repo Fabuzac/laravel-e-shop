@@ -46,14 +46,21 @@
 						<label for="qty">Quantity:</label>
 						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
 						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-						 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+						 class="increase items-count" type="button"><i class="fa fa-chevron-up"></i></button>
 						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-						 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+						 class="reduced items-count" type="button"><i class="fa fa-chevron-down"></i></button>
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<a class="primary-btn" href="#">Add to Cart</a>
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+						<form action="{{ route('cart.store') }}" method="POST">			
+							@csrf
+							<input type="hidden" name="id" value="{{ $product->id }}">				
+							<input type="hidden" name="name" value="{{ $product->name }}">				
+							<input type="hidden" name="price" value="{{ $product->price }}">				
+							<button class="primary-btn" type="submit">Add to Cart</button>
+						</form>						
+
+						<a class="icon_btn" href="#"><i class="fa fa-diamond"></i></a>
+						<a class="icon_btn" href="#"><i class="fa fa-heart"></i></a>
 					</div>
 				</div>
 			</div>

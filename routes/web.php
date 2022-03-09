@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,10 @@ Route::get('/elements', [HomeController::class, 'elements'])->name('elements');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/single-blog', [HomeController::class, 'singleBlog'])->name('single-blog');
 
-Route::get('/cart', [HomeController::class, 'cart'])->name('cart.index');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+Route::post('/cart/reset', [CartController::class, 'reset'])->name('cart.reset');
+
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout.index');
 Route::get('/orders', [HomeController::class, 'orders'])->name('orders');
 Route::get('/confirmation', [HomeController::class, 'confirmation'])->name('confirmation');
