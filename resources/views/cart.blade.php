@@ -64,9 +64,16 @@
                             </td>
                             
                             <td>
-                                <div class="product_count"> 
-                                <input type="text" name="qty" id="sst" maxlength="12" value="x {{ $product->quantity }}" title="Quantity:"
-                                        class="input-text qty">
+                                <div  class="product_count"> 
+                                    <input type="text" 
+                                           name="qty" 
+                                           id="sst" 
+                                           maxlength="12" 
+                                           value="x {{ $product->quantity }}" 
+                                           title="Quantity:"
+                                           class="input-text qty"
+                                           disabled
+                                    >
                                     <button 
                                         onclick="var result = document.getElementById('sst');
                                                  var sst = result.value;
@@ -87,7 +94,12 @@
                                 </div>
                             </td>
                             <td>
-                                <button type="submit" class="btn btn-link">Remove</button>
+                                <form action="{{ route('cart.destroy'), $product->rowId }}" method="POST">
+                                    @method("DELETE")
+                                    @csrf
+                                    <button type="submit" class="btn btn-link">Remove</button>
+                                </form>
+
                             </td>
                         </tr>
                         @endforeach
@@ -101,15 +113,12 @@
                             <td>
 
                             </td>
-                            <td class="border">
-                                <h5>Subtotal</h5>
-                                <p>Taxe</p>
+                            <td class="border">                              
+                                
                                 <h4>Total</h4>
                             </td>
                             <td class="border">
                                 <h5>6.00</h5>
-                                <p>0.85</p>
-                                <h4>6.85</h4>
                             </td>
                         </tr>
                         <tr class="out_button_area">
@@ -129,7 +138,7 @@
                     </tbody>
                 </table>
                 <div class="checkout_btn_inner d-flex align-items-center justify-content-around mb-3">
-                    <a class="gray_btn" href="{{ route('home') }}">Continue Shopping</a>
+                    <a class="gray_btn" href="{{ route('shop.index') }}">Continue Shopping</a>
                     <a class="primary-btn" href="{{ route('checkout.index') }}">Proceed to checkout</a>
                 </div>
             </div>
