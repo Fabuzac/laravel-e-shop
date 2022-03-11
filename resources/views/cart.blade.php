@@ -94,11 +94,12 @@
                                 </div>
                             </td>
                             <td>
-                                <form action="{{ route('cart.destroy'), $product->rowId }}" method="POST">
+                                {{-- <form action="{{ route('cart.destroy'), $product->rowId }}" method="POST">
                                     @method("DELETE")
                                     @csrf
                                     <button type="submit" class="btn btn-link">Remove</button>
-                                </form>
+                                </form> --}}
+                                <button type="submit" class="btn btn-link">Remove</button>
 
                             </td>
                         </tr>

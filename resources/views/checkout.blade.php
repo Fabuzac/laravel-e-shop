@@ -30,7 +30,7 @@
             <form class="row contact_form" action="#" method="post" novalidate="novalidate">
                 <div class="col-md-6 form-group p_star">
                     <input type="text" class="form-control" id="name" name="name">
-                    <span class="placeholder" data-placeholder="Username or Email"></span>
+                    <span class="placeholder" data-placeholder="Email" placeholder="Email"></span>
                 </div>
                 <div class="col-md-6 form-group p_star">
                     <input type="password" class="form-control" id="password" name="password">
