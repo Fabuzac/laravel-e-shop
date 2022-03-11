@@ -27,7 +27,11 @@
                 {{ $message }}
             </div>
         @endif
-        <div class="cart_inner">    
+        <div class="cart_inner">
+
+            @if (count(Cart::getContent()) > 0)
+                
+            
             <h2>{{ count(Cart::getContent()) }} item(s) in shopping cart</h2> 
             <div class="table-responsive">
                 <table class="table">
@@ -117,9 +121,10 @@
                             <td class="border">                              
                                 
                                 <h4>Total</h4>
+                                
                             </td>
                             <td class="border">
-                                <h5>6.00</h5>
+                                <h5>${{ Cart::getSubTotal() }}</h5>
                             </td>
                         </tr>
                         <tr class="out_button_area">
@@ -144,7 +149,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
+    @else
+        <h3 class="my-3 text-center">No item in shopping cart</h3>
+        <div class="checkout_btn_inner d-flex align-items-center justify-content-around mb-3">
+            <a class="gray_btn" href="{{ route('shop.index') }}">Continue Shopping</a>
+        </div>
+    @endif
    
 </section>
 <!--================End Cart Area =================-->

@@ -10,3 +10,9 @@
 .small-title {
     font-size: 13px;
 }
+
+.cart-badge {
+    color: #000 !important;
+    font-weight: 500 !important;
+    line-height: 20px !important;
+}

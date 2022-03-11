@@ -14,7 +14,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('home') }}">Home</a>
+                        </li>
                         <li class="nav-item submenu dropdown">
                             <a href="{{ route('shop.index') }}" 
                                class="nav-link dropdown-toggle" 
@@ -39,7 +41,7 @@
                             </ul>
                         </li>
                         <li class="nav-item submenu dropdown">
-                            <a href="#" 
+                            <a href="#"     
                                class="nav-link dropdown-toggle" 
                                data-toggle="dropdown" 
                                role="button" 
@@ -52,10 +54,12 @@
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
-                        <li>
+                    </ul>
 
+                    <ul class="ml-auto navbar-nav ml-auto">
+                        <li class="nav-item">
                             <div>
-                                <ul class="navbar-nav me-auto">
+                                <li class="navbar-nav ml-auto">
                                     @if (Auth::user())    
                         
                                         @if (Auth::user()->role === 'ADMIN')
@@ -83,15 +87,18 @@
                                             <a class="nav-link" href="{{ route('register') }}">Create Account</a>
                                         </li>            
                                     @endif
-                                </ul>
+                                </li>
                             </div>
-
                         </li>
                     </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">
                             <a href="{{ route('cart.index') }}" class="cart">
                                 <i class="fa fa-shopping-cart" style="color:black;font-size:19px;"></i>
+                                @if (count(Cart::getContent()) > 0)
+                                    <span class="badge cart-badge badge-warning">{{ count(Cart::getContent()) }}</span>
+                                @endif
                             </a>
                         </li>
                         <li class="nav-item">
