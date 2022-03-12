@@ -20,18 +20,18 @@
 
 <!--================Cart Area =================-->
 <section class="cart_area">
-    <div class="container">
+    <div class="container">        
         @if ($message = Session::get('success'))
             <div class="text-light alert alert-succes alert-block bg-success">
                 <button type="button" data-dismiss="alert" class="close">X</button>
                 {{ $message }}
             </div>
         @endif
+
         <div class="cart_inner">
 
-            @if (count(Cart::getContent()) > 0)
-                
-            
+        @if (count(Cart::getContent()) > 0)                            
+
             <h2>{{ count(Cart::getContent()) }} item(s) in shopping cart</h2> 
             <div class="table-responsive">
                 <table class="table">
@@ -45,9 +45,8 @@
                         </tr>
                     </thead>
                     <tbody>                        
-                        @foreach (Cart::getContent() as $product)
-                        <tr>
-                            
+                        @foreach (Cart::getContent() as $product)                        
+                        <tr>                            
                             <td>
                                 <div class="media">
                                     <div class="d-flex">
@@ -97,14 +96,17 @@
                                     </button>
                                 </div>
                             </td>
-                            <td>
-                                {{-- <form action="{{ route('cart.destroy'), $product->rowId }}" method="POST">
+                            <td>                                
+                                <form action="{{ route('cart.delete', $product->model) }}" method="POST">
                                     @method("DELETE")
                                     @csrf
                                     <button type="submit" class="btn btn-link">Remove</button>
-                                </form> --}}
-                                <button type="submit" class="btn btn-link">Remove</button>
-
+                                </form>                                
+                                
+                                <form action="{{ route('cart.save', $product->model) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link">Save for later</button>
+                                </form>                                
                             </td>
                         </tr>
                         @endforeach
@@ -156,7 +158,11 @@
             <a class="gray_btn" href="{{ route('shop.index') }}">Continue Shopping</a>
         </div>
     @endif
-   
+   <div class="single-product-slider">
+        <div class="container">
+            <h2>Wishlist</h2>
+        </div>
+   </div>
 </section>
 <!--================End Cart Area =================-->
 @endsection

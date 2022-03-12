@@ -15,8 +15,8 @@
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
 								<div class="add-bag d-flex align-items-center">
-									<a class="add-btn" href="">
-										<i class="fa fa-shopping-cart" style="color:black;font-size:19px;"></i>
+									<a class="add-btn" href="#">
+										<i class="fa fa-shopping-cart" style="color:#fff;font-size:19px;"></i>
 									</a>
 									<span class="add-text text-uppercase">Add to Cart</span>
 								</div>
@@ -36,8 +36,8 @@
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
 								<div class="add-bag d-flex align-items-center">
-									<a class="add-btn" href="">
-										<i class="fa fa-shopping-cart" style="color:black;font-size:19px;"></i>
+									<a class="add-btn" href="#">
+										<i class="fa fa-shopping-cart" style="color:#fff;font-size:19px;"></i>
 									</a>
 									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
@@ -175,22 +175,22 @@
 									<h6>${{ $product->price }}</h6>										
 								</div>
 								<div class="prd-bottom">
-									<a href="" class="social-info">
+									<a href="#" class="social-info">
 										<span> <i class="fas fa-shopping-bag"></i> </span>
 										<p class="hover-text">add to bag</p>
 									</a>
-									<a href="" class="social-info">
+									<a href="#" class="social-info">
 										<span> <i class="fas fa-heart"></i> </span>
 										<p class="hover-text">Wishlist</p>
 									</a>
-									<a href="" class="social-info">
-										<span> <i class="fa fa-code-compare"></i> </span>											
+									<a href="#" class="social-info">
+										<span> <i class="fas fa-exchange-alt"></i> </span>										
 										<p class="hover-text">compare</p>
 									</a>
-									<a href="" class="social-info">
-										<span> <i class="fab fa-arrow-right-to-bracket"></i> </span>
+									<a href="#" class="social-info">
+										<span> <i class="fa fa-eye"></i> </span>
 										<p class="hover-text">view more</p>
-									</a>										
+									</a>									
 								</div>
 							</div>
 						</div>
@@ -207,8 +207,7 @@
 					<div class="section-title">
 						<h1>Coming Products</h1>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+							Lorem ipsum dolor sit amet.
 						</p>
 					</div>
 				</div>
@@ -228,22 +227,22 @@
 									<h6>${{ $product->price }}</h6>										
 								</div>
 								<div class="prd-bottom">
-									<a href="" class="social-info">
+									<a href="#" class="social-info">
 										<span> <i class="fas fa-shopping-bag"></i> </span>
 										<p class="hover-text">add to bag</p>
 									</a>
-									<a href="" class="social-info">
+									<a href="#" class="social-info">
 										<span> <i class="fas fa-heart"></i> </span>
 										<p class="hover-text">Wishlist</p>
 									</a>
-									<a href="" class="social-info">
-										<span> <i class="fa fa-code-compare"></i> </span>											
+									<a href="#" class="social-info">
+										<span> <i class="fas fa-exchange-alt"></i> </span>										
 										<p class="hover-text">compare</p>
 									</a>
-									<a href="" class="social-info">
-										<span> <i class="fab fa-arrow-right-to-bracket"></i> </span>
+									<a href="#" class="social-info">
+										<span> <i class="fa fa-eye"></i> </span>
 										<p class="hover-text">view more</p>
-									</a>										
+									</a>								
 								</div>
 							</div>
 						</div>

@@ -37,9 +37,8 @@ Route::get('/single-blog', [HomeController::class, 'singleBlog'])->name('single-
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
-//Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
-
-Route::post('/cart/reset', [CartController::class, 'reset'])->name('cart.reset');
+Route::post('/cart/{product}/save', [CartController::class, 'save'])->name('cart.save');
+Route::delete('/cart/{product}', [CartController::class, 'delete'])->name('cart.delete');
 
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout.index');
 Route::get('/orders', [HomeController::class, 'orders'])->name('orders');

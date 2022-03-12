@@ -148,22 +148,21 @@
 									<h6>${{ $product->price }}</h6>									
 								</div>
 								<div class="prd-bottom">
-
-									<a href="" class="social-info">
+									<a href="#" class="social-info">
 										<span> <i class="fas fa-shopping-bag"></i> </span>
 										<p class="hover-text">add to bag</p>
 									</a>
-									<a href="" class="social-info">
+									<a href="#" class="social-info">
 										<span> <i class="fas fa-heart"></i> </span>
 										<p class="hover-text">Wishlist</p>
 									</a>
-									<a href="" class="social-info">
-										<span> <i class="fa fa-code-compare"></i> </span>
+									<a href="#" class="social-info">
+										<span> <i class="fas fa-exchange-alt"></i> </span>
 										
 										<p class="hover-text">compare</p>
 									</a>
-									<a href="" class="social-info">
-										<span> <i class="fab fa-arrow-right-to-bracket"></i> </span>
+									<a href="#" class="social-info">
+										<span> <i class="fa fa-eye"></i> </span>
 										<p class="hover-text">view more</p>
 									</a>
 								</div>

@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CartController extends Controller
-{    
-
+class SaveController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        return view('cart');
+        //
     }
 
     /**
@@ -30,9 +34,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        \Cart::add($request->id, $request->name, $request->price, 1, array())->associate('App\Models\Product');
-
-        return redirect()->route('cart.index')->with('success', 'Produit ajoute a votre panier');
+        //
     }
 
     /**
@@ -70,30 +72,13 @@ class CartController extends Controller
     }
 
     /**
-     * Destroy function
-     * 
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        \Cart::remove($id);
-
-        return back()->with('success', 'Le produit a bien ete supprime du panier');
-    }
-
-    public function save($id)
-    {
-        $itemId = \Cart::get($id);
-        
-        \Cart::remove($id);
-
-        // \Cart::instance('save')->add($itemId->id, $itemId->name, 1, $itemId->price)->associate('App\Models\Product');
-        
-        session_name('wishlist');
-
-        return redirect()->route('cart.index')->with('succes', 'Product saved for later');
+        //
     }
 }
