@@ -64,7 +64,7 @@
                         
                                         @if (Auth::user()->role === 'ADMIN')
                                             <li class="nav-item">
-                                            <a class="nav-link" href="#">Dashboard Admin</a>
+                                                <a class="nav-link" href="#">Dashboard Admin</a>
                                             </li> 
                                         @endif
                                         <li class="nav-item">            
@@ -80,11 +80,17 @@
                                         </li>						
                                     @else        
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                            <a class="nav-link" href="{{ route('login') }}">
+                                                <i class="fa fa-user"></i>
+                                                Login
+                                            </a>
                                         </li> 
                         
                                         <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('register') }}">Create Account</a>
+                                            <a class="nav-link" href="{{ route('register') }}">
+                                                <i class="fas fa-sticky-note"></i>
+                                                Create Account
+                                            </a>
                                         </li>            
                                     @endif
                                 </li>
