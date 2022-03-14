@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,10 @@ Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 Route::post('/cart/{product}/save', [CartController::class, 'save'])->name('cart.save');
 Route::delete('/cart/{product}', [CartController::class, 'delete'])->name('cart.delete');
 
-Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout.index');
+Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.index');
+Route::get('/confirmation', [CheckoutController::class, 'success'])->name('checkout.success');
+
 Route::get('/orders', [HomeController::class, 'orders'])->name('orders');
-Route::get('/confirmation', [HomeController::class, 'confirmation'])->name('confirmation');
 Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
 Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
 

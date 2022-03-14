@@ -69,13 +69,7 @@ class HomeController extends Controller
     public function singleBlog() 
     {
         return view('single-blog');
-    }
-
-    public function checkout() 
-    {
-        return view('checkout');
-    }
-    
+    }    
     
     public function orders() 
     {

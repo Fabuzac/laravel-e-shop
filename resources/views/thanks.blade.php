@@ -2,7 +2,7 @@
 
 @section('content')
 
-{!! Breadcrumbs::render('confirmation') !!}
+{{-- {!! Breadcrumbs::render('confirmation') !!} --}}
 
 <!--================Order Details Area =================-->
 <section class="order_details section_gap">
