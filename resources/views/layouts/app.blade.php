@@ -9,8 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel-E-Shop') }}</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/fav.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/fav.png') }}">
     <meta name="theme-color" content="#ffffff">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -23,6 +23,7 @@
 	<link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.skinFlat.css') }}" />
 	<link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">    
+    @yield('includes')
     @yield('head')
 </head>
 <body>
@@ -36,6 +37,7 @@
 
         {{-- FOOTER --}}
         @include('components.footer')
+        @yield('js')
     </div>
 
     <!-- JAVASCRIPT -->

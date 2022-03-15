@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('includes')
+    <script src="https://js.stripe.com/v3/"></script>
 @section('content')
 
 <!-- Start Banner Area -->
@@ -108,11 +110,18 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <div class="creat_account">
-                                <h3>Shipping Details</h3>
-                                <input type="checkbox" id="f-option3" name="selector">
-                                <label for="f-option3">Ship to a different address?</label>
-                            </div>
-                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
+                                <div class="form-group">
+                                    <label for="card-element">
+                                        Caredit or debit card
+                                    </label>
+                                    <div id="card-element">
+                                        <!-- A Stripe Element will be inserted here -->
+                                    </div>
+
+                                    <!-- Used to display form errors -->
+                                    <div id="card-errors" role="alert"></div>
+                                </div>
+                            </div>                            
                         </div>
                     </form>
                 </div>
