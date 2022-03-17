@@ -51,7 +51,10 @@
                                 <div class="media">
                                     <div class="d-flex">
                                         <a href="#">
-                                            <img class="img-thumbnail w-20" src="{{ Voyager::image($product->model->image) }}" alt="">
+                                            <img class="img-thumbnail w-20" 
+                                                 src="{{ Voyager::image($product->model->image) }}" 
+                                                 alt="image product"
+                                            >
                                         </a>
                                     </div>
                                 </div>
@@ -111,37 +114,14 @@
                         </tr>
                         @endforeach
                         <tr>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td class="border">                              
-                                
-                                <h4>Total</h4>
-                                
+                            <td class="border">                                                              
+                                <h4>Total</h4>                                
                             </td>
                             <td class="border">
                                 <h5>${{ Cart::getSubTotal() }}</h5>
                             </td>
                         </tr>
-                        <tr class="out_button_area">
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-
-                            </td>
-                            <td>
-                                
-                            </td>
+                            <tr class="out_button_area">                  
                         </tr>
                     </tbody>
                 </table>

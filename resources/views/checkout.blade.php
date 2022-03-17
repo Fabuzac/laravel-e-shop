@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('includes')
-    <script src="https://js.stripe.com/v3/"></script>
+    {{-- <script src="https://js.stripe.com/v3/"></script> --}}
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+@endsection
+
 @section('content')
 
 <!-- Start Banner Area -->
@@ -49,17 +53,18 @@
             </form>
         </div>
         
+        {{-- USER INFO --}}
         <div class="billing_details">
             <div class="row">
                 <div class="col-lg-8">
                     <h3>Billing Details</h3>
                     <form class="row contact_form" action="#" method="post" novalidate="novalidate">
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="first" name="name">
+                            <input type="text" class="form-control" id="firstName" name="name">
                             <span class="placeholder" data-placeholder="First name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="last" name="name">
+                            <input type="text" class="form-control" id="lastName" name="name">
                             <span class="placeholder" data-placeholder="Last name"></span>
                         </div>
                         <div class="col-md-12 form-group">
@@ -102,42 +107,76 @@
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
                         </div>
-                        <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Create an account?</label>
-                            </div>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <div class="creat_account">
-                                <div class="form-group">
-                                    <label for="card-element">
-                                        Caredit or debit card
-                                    </label>
-                                    <div id="card-element">
-                                        <!-- A Stripe Element will be inserted here -->
-                                    </div>
-
-                                    <!-- Used to display form errors -->
-                                    <div id="card-errors" role="alert"></div>
-                                </div>
-                            </div>                            
-                        </div>
                     </form>
+
+                    {{-- CREDIT CARD --}}
+                    <div class="col-md-12 form-group">
+                        <h4>Credit or debit card</h4>
+                        <form role="form" 
+                              action="#"
+                              method="post" 
+                              class="require-validation" 
+                              id="payment-form"
+                              data-cc-on-file="false" 
+                              data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" 
+                        >
+                        @csrf
+                        <div class='form-row row'>
+                           <div class='col-xs-12 col-md-6 form-group required'>
+                              <label class='control-label'>Name on Card</label> 
+                              <input class='form-control' size='4' type='text'>
+                           </div>
+                           <div class='col-xs-12 col-md-6 form-group required'>
+                              <label class='control-label'>Card Number</label> 
+                              <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+                           </div>                           
+                        </div>                        
+                        <div class='form-row row'>
+                           <div class='col-xs-12 col-md-4 form-group cvc required'>
+                              <label class='control-label'>CVC</label> 
+                              <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
+                           </div>
+                           <div class='col-xs-12 col-md-4 form-group expiration required'>
+                              <label class='control-label'>Expiration Month</label> 
+                              <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+                           </div>
+                           <div class='col-xs-12 col-md-4 form-group expiration required'>
+                              <label class='control-label'>Expiration Year</label> 
+                              <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+                           </div>
+                        </div>                     
+                        <div class="form-row row">
+                           <div class="col-xs-12">
+                              <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now</button>
+                           </div>
+                        </div>
+                     </form>
+                    </div>
                 </div>
+
+                {{-- CART --}}
                 <div class="col-lg-4">
                     <div class="order_box">
                         <h2>Your Order</h2>
                         <ul class="list">
                             <li><a href="#">Product <span>Total</span></a></li>
-                            <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                            <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
-                            <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+                            @foreach (Cart::getContent() as $product)                               
+                                <li>
+                                    <a href="#">{{ substr($product->model->name,0,10) }}...
+                                        <img class="img-thumbnail" style="width: 15%;" 
+                                             src="{{ Voyager::image($product->model->image) }}" 
+                                             alt="image product"
+                                        >
+                                        <span class="middle">x {{ $product->quantity }}</span>
+                                        <span class="last">${{ $product->model->price }}</span>
+                                    </a>                                    
+                                </li>
+                            @endforeach                            
                         </ul>
                         <ul class="list list_2">
-                            <li><a href="#">Subtotal <span>$2160.00</span></a></li>
+                            <li><a href="#">Subtotal <span>${{ Cart::getSubTotal() }}</span></a></li>
                             <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
-                            <li><a href="#">Total <span>$2210.00</span></a></li>
+                            <li><a href="#">Total <span>${{ Cart::getSubTotal() }}</span></a></li>
                         </ul>
                         <div class="payment_item">
                             <div class="radion_btn">
@@ -145,8 +184,11 @@
                                 <label for="f-option5">Check payments</label>
                                 <div class="check"></div>
                             </div>
-                            <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
-                                Store Postcode.</p>
+                            <p>
+                                Please send a check to Store Name,
+                                Store Street, Store Town, Store State / County,
+                                Store Postcode.
+                            </p>
                         </div>
                         <div class="payment_item active">
                             <div class="radion_btn">
@@ -155,8 +197,11 @@
                                 <img src="img/product/card.jpg" alt="">
                                 <div class="check"></div>
                             </div>
-                            <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
-                                account.</p>
+                            <p>
+                                Pay via PayPal; 
+                                you can pay with your credit card if you don’t have a PayPal
+                                account.
+                            </p>
                         </div>
                         <div class="creat_account">
                             <input type="checkbox" id="f-option4" name="selector">
@@ -184,4 +229,59 @@
     </div>
 </section>
 <!--================End Checkout Area =================-->
+@endsection
+
+{{-- ======== STRIPE FORM VALIDATION ======== --}}
+@section('js')
+<script type="text/javascript">
+    $(function() {
+        var $form = $(".require-validation");
+
+        $('form.require-validation').bind('submit', function(e) {
+            var $form = $(".require-validation"),
+            inputSelector = ['input[type=email]', 'input[type=password]', 'input[type=text]', 'input[type=file]', 'textarea'].join(', '),
+            $inputs = $form.find('.required').find(inputSelector),
+            $errorMessage = $form.find('div.error'),
+            valid = true;
+            $errorMessage.addClass('hide');
+            $('.has-error').removeClass('has-error');
+
+
+            $inputs.each(function(i, el) {
+                var $input = $(el);
+                if ($input.val() === '') {
+                    $input.parent().addClass('has-error');
+                    $errorMessage.removeClass('hide');
+                    e.preventDefault();
+                }
+            });
+
+            if (!$form.data('cc-on-file')) {
+              e.preventDefault();
+              Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+              Stripe.createToken({
+                  number: $('.card-number').val(),
+                  cvc: $('.card-cvc').val(),
+                  exp_month: $('.card-expiry-month').val(),
+                  exp_year: $('.card-expiry-year').val()
+              }, stripeResponseHandler);
+            }
+        });
+    
+        function stripeResponseHandler(status, response) {
+            if(response.error) {
+                $('.error')
+                .removeClass('hide')
+                .find('.alert')
+                .text(response.error.message);
+            }else {
+              /* token contains id, last4, and card type */
+              var token = response['id'];
+              $form.find('input[type=text]').empty();
+              $form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+              $form.get(0).submit();
+            }
+        }
+    });
+    </script>
 @endsection
