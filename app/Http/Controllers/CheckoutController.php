@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Stripe;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
@@ -47,7 +50,19 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Charge::create ([
+                "amount" => \Cart::getTotal() * 100,
+                "currency" => "EUR",
+                "source" => $request->stripeToken,
+                "description" => "This is test payment",
+        ]);
+   
+        //Session::flash('success', 'Payment Successful !');
+           
+        return redirect()->route('checkout.success')->with('success', 'Payment Successful !');
     }
 
     /**

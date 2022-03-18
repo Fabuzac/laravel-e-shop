@@ -20,7 +20,14 @@
 	<!--================Order Details Area =================-->
 	<section class="order_details section_gap">
 		<div class="container">
-			<h3 class="title_confirmation">Thank you. Your order has been received.</h3>
+			
+			@if ($message = Session::get('success'))
+				<div class="text-light alert alert-succes alert-block bg-success">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
+					<p>{{ $message }}</p>
+				</div>
+     	   @endif
+			
 			<div class="row order_d_inner">
 				<div class="col-lg-4">
 					<div class="details_item">

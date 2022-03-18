@@ -42,6 +42,7 @@ Route::post('/cart/{product}/save', [CartController::class, 'save'])->name('cart
 Route::delete('/cart/{product}', [CartController::class, 'delete'])->name('cart.delete');
 
 Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.index');
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/confirmation', [CheckoutController::class, 'success'])->name('checkout.success');
 
 Route::get('/orders', [HomeController::class, 'orders'])->name('orders');
@@ -50,9 +51,8 @@ Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
 
 
 //========
-// ADMIN =========================================================
+// ADMIN =
 //========
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
