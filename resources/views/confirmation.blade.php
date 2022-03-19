@@ -26,17 +26,16 @@
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
 					<p>{{ $message }}</p>
 				</div>
-     	   @endif
-			
+     		@endif
+			 
 			<div class="row order_d_inner">
 				<div class="col-lg-4">
 					<div class="details_item">
 						<h4>Order Info</h4>
 						<ul class="list">
 							<li><a href="#"><span>Order number</span> : 60235</a></li>
-							<li><a href="#"><span>Date</span> : Los Angeles</a></li>
-							<li><a href="#"><span>Total</span> : USD 2210</a></li>
-							<li><a href="#"><span>Payment method</span> : Check payments</a></li>
+							<li><a href="#"><span>Date</span> : 19/03/2022</a></li>
+							<li><a href="#"><span>Total</span> : $ 2210</a></li>							
 						</ul>
 					</div>
 				</div>
@@ -44,10 +43,11 @@
 					<div class="details_item">
 						<h4>Billing Address</h4>
 						<ul class="list">
-							<li><a href="#"><span>Street</span> : 56/8</a></li>
-							<li><a href="#"><span>City</span> : Los Angeles</a></li>
-							<li><a href="#"><span>Country</span> : United States</a></li>
-							<li><a href="#"><span>Postcode </span> : 36952</a></li>
+							<li><a href="#"><span>Number</span> : 56</a></li>
+							<li><a href="#"><span>Street</span> : Boulevard taratintin</a></li>
+							<li><a href="#"><span>City</span> : Nantes</a></li>
+							<li><a href="#"><span>Postcode </span> : 44200</a></li>
+							<li><a href="#"><span>Country</span> : France</a></li>
 						</ul>
 					</div>
 				</div>
@@ -55,14 +55,20 @@
 					<div class="details_item">
 						<h4>Shipping Address</h4>
 						<ul class="list">
-							<li><a href="#"><span>Street</span> : 56/8</a></li>
-							<li><a href="#"><span>City</span> : Los Angeles</a></li>
-							<li><a href="#"><span>Country</span> : United States</a></li>
-							<li><a href="#"><span>Postcode </span> : 36952</a></li>
+							<li><a href="#"><span>Number</span> : 56</a></li>
+							<li><a href="#"><span>Street</span> : Boulevard taratintin</a></li>
+							<li><a href="#"><span>City</span> : Nantes</a></li>
+							<li><a href="#"><span>Postcode </span> : 44200</a></li>
+							<li><a href="#"><span>Country</span> : France</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
+
+			<div>
+				<h4>My Bill PDF:</h4><span>01.PDF</span>
+			</div>
+
 			<div class="order_details_table">
 				<h2>Order Details</h2>
 				<div class="table-responsive">
@@ -75,39 +81,23 @@
 							</tr>
 						</thead>
 						<tbody>
+							@foreach (Cart::getContent() as $product)
 							<tr>
 								<td>
-									<p>Pixelstore fresh Blackberry</p>
+									<p>{{ $product->model->name }}</p>
+									<img class="img-thumbnail" style="width: 15%;" 
+										 src="{{ Voyager::image($product->model->image) }}" 
+										 alt="image product"
+                                    >
 								</td>
 								<td>
-									<h5>x 02</h5>
+									<h5>x {{ $product->quantity }}</h5>
 								</td>
 								<td>
-									<p>$720.00</p>
+									<p>${{ $product->model->price }}</p>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<p>Pixelstore fresh Blackberry</p>
-								</td>
-								<td>
-									<h5>x 02</h5>
-								</td>
-								<td>
-									<p>$720.00</p>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>Pixelstore fresh Blackberry</p>
-								</td>
-								<td>
-									<h5>x 02</h5>
-								</td>
-								<td>
-									<p>$720.00</p>
-								</td>
-							</tr>
+							@endforeach
 							<tr>
 								<td>
 									<h4>Subtotal</h4>
@@ -116,7 +106,7 @@
 									<h5></h5>
 								</td>
 								<td>
-									<p>$2160.00</p>
+									<p>${{ Cart::getSubTotal() }}</p>
 								</td>
 							</tr>
 							<tr>
@@ -138,7 +128,7 @@
 									<h5></h5>
 								</td>
 								<td>
-									<p>$2210.00</p>
+									<p>${{ Cart::getTotal() }}</p>
 								</td>
 							</tr>
 						</tbody>

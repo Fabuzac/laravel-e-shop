@@ -31,8 +31,11 @@
             <div class="check_title">
                 <h2>Returning Customer? <a href="#">Click here to login</a></h2>
             </div>
-            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new
-                customer, please proceed to the Billing & Shipping section.</p>
+            <p>
+                If you have shopped with us before,
+                please enter your details in the boxes below. If you are a new
+                customer, please proceed to the Billing & Shipping section.
+            </p>
             <form class="row contact_form" action="#" method="post" novalidate="novalidate">
                 <div class="col-md-6 form-group p_star">
                     <input type="text" class="form-control" id="name" name="name">

@@ -49,7 +49,6 @@ Route::get('/orders', [HomeController::class, 'orders'])->name('orders');
 Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
 Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
 
-
 //========
 // ADMIN =
 //========
