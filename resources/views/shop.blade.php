@@ -170,7 +170,6 @@
 						</div>
 					</div>
 					@endforeach
-					
 				</div>
 			</section>
 			<!-- End Best Seller -->
@@ -179,7 +178,7 @@
 				<div class="sorting mr-auto">
 					<select>
 						<option value="1">Show 12</option>
-						<option value="1">Show 12</option>
+						<option value="1">Show 13</option>
 						<option value="1">Show 12</option>
 					</select>
 				</div>
