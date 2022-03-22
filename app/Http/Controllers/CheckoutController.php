@@ -58,6 +58,9 @@ class CheckoutController extends Controller
                 "currency" => "EUR",
                 "source" => $request->stripeToken,
                 "description" => "This is test payment",
+                "metadata" => [
+                    'owner' => $request->name
+                ]
         ]);
    
         //Session::flash('success', 'Payment Successful !');

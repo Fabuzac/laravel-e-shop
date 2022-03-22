@@ -59,102 +59,97 @@
         {{-- USER INFO --}}
         <div class="billing_details">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 form-group">
                     <h3>Billing Details</h3>
-                    <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+                    <form role="form" 
+                            action="{{ route('checkout.store') }}"
+                            method="POST" 
+                            class="require-validation" 
+                            id="payment-form"
+                            data-cc-on-file="false" 
+                            data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" 
+                    >
+                    @csrf
+                        {{-- USER DATA --}}
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="firstName" name="name">
-                            <span class="placeholder" data-placeholder="First name"></span>
+                            <input type="text" class="form-control" placeholder="First name" id="firstName" name="name">
+                            <span class="placeholder"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="lastName" name="name">
-                            <span class="placeholder" data-placeholder="Last name"></span>
+                            <input type="text" class="form-control" placeholder="Last name" id="lastName" name="lastname">
+                            <span class="placeholder"></span>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="company" name="company" placeholder="Company name">
+                            <input type="text" class="form-control" placeholder="Compagny name" id="company" name="company">
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="number" name="number">
-                            <span class="placeholder" data-placeholder="Phone number"></span>
+                            <input type="text" class="form-control" placeholder="Phone number" id="number" name="number">
+                            <span class="placeholder"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="compemailany">
-                            <span class="placeholder" data-placeholder="Email Address"></span>
+                            <input type="text" class="form-control" placeholder="Email Address" id="email" name="email">
+                            <span class="placeholder"></span>
                         </div>
-                        <div class="col-md-12 form-group p_star">
-                            <select class="country_select">
-                                <option value="1">Country</option>
-                                <option value="2">Country</option>
-                                <option value="4">Country</option>
+                        <div class="col-md-12 form-group p_star">   
+                            <select class="country_select" id="country">
+                                <option value="1">France</option>
+                                <option value="2">USA</option>
+                                <option value="4">Colombia</option>
                             </select>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add1" name="add1">
-                            <span class="placeholder" data-placeholder="Address line 01"></span>
+                            <input type="text" class="form-control" placeholder="Address line 01" id="add1" name="add1">
+                            <span class="placeholder"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add2" name="add2">
-                            <span class="placeholder" data-placeholder="Address line 02"></span>
+                            <input type="text" class="form-control" placeholder="Address line 01" id="add2" name="add2">
+                            <span class="placeholder"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="city" name="city">
-                            <span class="placeholder" data-placeholder="Town/City"></span>
+                            <input type="text" class="form-control" placeholder="City" id="city" name="city">
+                            <span class="placeholder"></span>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <select class="country_select">
-                                <option value="1">District</option>
-                                <option value="2">District</option>
-                                <option value="4">District</option>
-                            </select>
+                            <input type="text" class="form-control" placeholder="District" id="district" name="district">
+                            <span class="placeholder"></span>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
                         </div>
-                    </form>
-
-                    {{-- CREDIT CARD --}}
-                    <div class="col-md-12 form-group">
-                        <h4>Credit or debit card</h4>
-                        <form role="form" 
-                              action="{{ route('checkout.store') }}"
-                              method="POST" 
-                              class="require-validation" 
-                              id="payment-form"
-                              data-cc-on-file="false" 
-                              data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" 
-                        >
-                        @csrf
-                        <div class='form-row row'>
-                           <div class='col-xs-12 col-md-6 form-group required'>
-                              <label class='control-label'>Name on Card</label> 
-                              <input class='form-control name' size='4' type='text'>
-                           </div>
-                           <div class='col-xs-12 col-md-6 form-group required'>
-                              <label class='control-label'>Card Number</label> 
-                              <input autocomplete='off' class='form-control card-number' maxlength="16" size='20' type='text'>
-                           </div>
-                        </div>                        
-                        <div class='form-row row'>
-                           <div class='col-xs-12 col-md-4 form-group cvc required'>
-                              <label class='control-label'>CVC</label> 
-                              <input autocomplete='off' class='form-control card-cvc' maxlength="3" placeholder='ex. 311' size='4' type='text'>
-                           </div>
-                           <div class='col-xs-12 col-md-4 form-group expiration required'>
-                              <label class='control-label'>Expiration Month</label> 
-                              <input class='form-control card-expiry-month' maxlength="2" placeholder='MM' size='2' type='text'>
-                           </div>
-                           <div class='col-xs-12 col-md-4 form-group expiration required'>
-                              <label class='control-label'>Expiration Year</label> 
-                              <input class='form-control card-expiry-year' maxlength="4" placeholder='YYYY' size='4' type='text'>
-                           </div>
-                        </div>                     
-                        <div class="form-row row">
-                           <div class="col-xs-12">
-                              <button class="primary-btn" type="submit">Pay Now</button>
-                           </div>
+                        {{-- CREDIT CARD --}}
+                        <div class="col-md-12 form-group">
+                            <h4>Credit or debit card</h4>                        
+                            <div class='form-row row'>
+                                <div class='col-xs-12 col-md-6 form-group required'>
+                                    <label class='control-label'>Name on Card</label> 
+                                    <input class='form-control name' size='4' type='text'>
+                                </div>
+                                <div class='col-xs-12 col-md-6 form-group required'>
+                                    <label class='control-label'>Card Number</label> 
+                                    <input autocomplete='off' class='form-control card-number' maxlength="16" size='20' type='text'>
+                                </div>
+                            </div>                        
+                            <div class='form-row row'>
+                                <div class='col-xs-12 col-md-4 form-group cvc required'>
+                                    <label class='control-label'>CVC</label> 
+                                    <input autocomplete='off' class='form-control card-cvc' maxlength="3" placeholder='ex. 311' size='4' type='text'>
+                                </div>
+                                <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                    <label class='control-label'>Expiration Month</label> 
+                                    <input class='form-control card-expiry-month' maxlength="2" placeholder='MM' size='2' type='text'>
+                                </div>
+                                <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                    <label class='control-label'>Expiration Year</label> 
+                                    <input class='form-control card-expiry-year' maxlength="4" placeholder='YYYY' size='4' type='text'>
+                                </div>
+                            </div>                     
+                            <div class="form-row row">
+                                <div class="col-xs-12">
+                                    <button class="primary-btn" type="submit">Pay Now</button>
+                                </div>
+                            </div>
                         </div>
-                     </form>
-                    </div>
+                    </form>
                 </div>
 
                 {{-- CART --}}
@@ -265,9 +260,7 @@
                   number: $('.card-number').val(),
                   cvc: $('.card-cvc').val(),
                   exp_month: $('.card-expiry-month').val(),
-                  exp_year: $('.card-expiry-year').val(),
-                  firstName: $('.firstName').val(),
-                  lastname: $('.lastname').val(),
+                  exp_year: $('.card-expiry-year').val(),                  
               }, stripeResponseHandler);
               
             }
