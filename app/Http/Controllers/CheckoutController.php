@@ -15,6 +15,11 @@ class CheckoutController extends Controller
      * @return \Illuminate\Http\Response
      */    
     
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // Gere le paiements
     public function checkout() 
     {
@@ -24,6 +29,10 @@ class CheckoutController extends Controller
     // Sucess paiement
     public function success()
     {
+        if(!session()->has('success')) {
+            return redirect()->route('home');
+        }
+
         return view('confirmation');
     }
 
@@ -50,19 +59,29 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create ([
-                "amount" => \Cart::getTotal() * 100,
-                "currency" => "EUR",
-                "source" => $request->stripeToken,
-                "description" => "This is test payment",
-                "metadata" => [
-                    'owner' => $request->name
-                ]
-        ]);
+            'amount' => \Cart::getTotal() * 100,
+            'currency' => 'EUR',
+            'source' => $request->stripeToken,
+            'description' => 'This is test payment',
+            'metadata' => [
+                'owner' => $request->name,                   
+                'products' => \Cart::getContent()->toJson(),                    
+            ],                
+        ]);            
    
+        // 'city' => $request->city,
+        // "company" => $request->company,
+        // "number" => $request->number,
+        // "email" => $request->number,
+        // "add1" => $request->add1,
+        // "add2" => $request->add2,                   
+        // "district" => $request->district,
+        // "zip" => $request->zip,
+        // 'lastName' => $request->lastName,
         //Session::flash('success', 'Payment Successful !');
            
         return redirect()->route('checkout.success')->with('success', 'Payment Successful !');

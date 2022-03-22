@@ -41,7 +41,7 @@ Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 Route::post('/cart/{product}/save', [CartController::class, 'save'])->name('cart.save');
 Route::delete('/cart/{product}', [CartController::class, 'delete'])->name('cart.delete');
 
-Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.index');
+Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.index')->middleware('auth');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/confirmation', [CheckoutController::class, 'success'])->name('checkout.success');
 
