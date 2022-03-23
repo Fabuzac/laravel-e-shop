@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Stripe;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Support\Facades\Session;
@@ -38,6 +40,13 @@ class CheckoutController extends Controller
 
         return view('confirmation');
     }
+
+    // public function getTotalWithDiscount($total)
+    // {
+    //     session()->has('coupon') 
+    //     ? round($total - session()->get('coupon')['discount'], 2) * 100 
+    //     : $total * 100;
+    // }
 
     public function index()
     {
@@ -78,18 +87,31 @@ class CheckoutController extends Controller
                 'owner' => $request->name,                   
                 'products' => \Cart::getContent()->toJson(),                    
             ],                
-        ]);            
-   
-        // 'city' => $request->city,
-        // "company" => $request->company,
-        // "number" => $request->number,
-        // "email" => $request->number,
-        // "add1" => $request->add1,
-        // "add2" => $request->add2,                   
-        // "district" => $request->district,
-        // "zip" => $request->zip,
-        // 'lastName' => $request->lastName,
-        //Session::flash('success', 'Payment Successful !');
+        ]);        
+        
+        $order = Order::create([
+            'user_id' => auth()->user()->id,
+            'paiement_firstname' => $request->firstname,
+            'paiement_lastname' => $request->lastname,
+            'paiement_phone' => $request->phone,
+            'paiement_email' => $request->email,
+            'paiement_address' => $request->address,
+            //'paiement_address2' => $request->address2,
+            'paiement_city' => $request->city,
+            'paiement_postalcode' => $request->postalcode,
+            'discount' => session()->get('coupon')['name'] ?? null,
+            'paiement_total' => session()->has('coupon') 
+                            ? round($total - session()->get('coupon')['discount'], 2) 
+                            : $total,
+        ]);
+
+        foreach(\Cart::getContent() as $product) {
+            OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $product->id,
+                'quantity' => $product->quantity
+            ]);
+        };
            
         return redirect()->route('checkout.success')->with('success', 'Payment Successful !');
     }

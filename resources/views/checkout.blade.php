@@ -51,76 +51,125 @@
                     @csrf
                         {{-- USER DATA --}}
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" placeholder="First name" id="firstName" name="name">
-                            <span class="placeholder"></span>
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="* First name" 
+                                   id="firstName" 
+                                   name="firstname"
+                            >
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" placeholder="Last name" id="lastName" name="lastname">
-                            <span class="placeholder"></span>
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="* Last name" 
+                                   id="lastName" 
+                                   name="lastname"
+                            >
                         </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="* Phone number" 
+                                   id="number" 
+                                   name="phone"
+                            >
+                        </div>
+                        <div class="col-md-6 form-group p_star">
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="* Email Address" 
+                                   id="email" 
+                                   name="email"
+                            >
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="* Address" 
+                                   id="add1" 
+                                   name="address"
+                            >
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="Additional Addresses APT 01 BUILDING 02" 
+                                   id="add2" 
+                                   name="address2"
+                            >
+                        </div>
+                        <div class="col-md-12 form-group p_star">
+                            <input type="text" 
+                                   class="form-control" 
+                                   placeholder="* City" 
+                                   id="city" 
+                                   name="city"
+                            >
+                        </div>                    
                         <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" placeholder="Compagny name" id="company" name="company">
-                        </div>
-                        <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" placeholder="Phone number" id="number" name="number">
-                            <span class="placeholder"></span>
-                        </div>
-                        <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" placeholder="Email Address" id="email" name="email">
-                            <span class="placeholder"></span>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="zip" 
+                                   name="postalcode" 
+                                   placeholder="Postcode/ZIP"
+                            >
                         </div>
                         <div class="col-md-12 form-group p_star">   
                             <select class="country_select" id="country">
                                 <option value="1">France</option>
-                                <option value="2">USA</option>
+                                <option value="2">Germany</option>
                                 <option value="4">Colombia</option>
                             </select>
                         </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" placeholder="Address line 01" id="add1" name="add1">
-                            <span class="placeholder"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" placeholder="Address line 01" id="add2" name="add2">
-                            <span class="placeholder"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" placeholder="City" id="city" name="city">
-                            <span class="placeholder"></span>
-                        </div>
-                        <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" placeholder="District" id="district" name="district">
-                            <span class="placeholder"></span>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP">
-                        </div>
-
                         {{-- CREDIT CARD --}}
                         <div class="col-md-12 form-group">
                             <h4>Credit or debit card</h4>                        
                             <div class='form-row row'>
                                 <div class='col-xs-12 col-md-6 form-group required'>
                                     <label class='control-label'>Name on Card</label> 
-                                    <input class='form-control name' size='4' type='text'>
+                                    <input class='form-control name' 
+                                           size='4' 
+                                           type='text'
+                                    >
                                 </div>
                                 <div class='col-xs-12 col-md-6 form-group required'>
                                     <label class='control-label'>Card Number</label> 
-                                    <input autocomplete='off' class='form-control card-number' maxlength="16" size='20' type='text'>
+                                    <input autocomplete='off'
+                                           class='form-control card-number' 
+                                           maxlength="16" 
+                                           size='20' 
+                                           type='text'
+                                    >
                                 </div>
                             </div>                        
                             <div class='form-row row'>
                                 <div class='col-xs-12 col-md-4 form-group cvc required'>
                                     <label class='control-label'>CVC</label> 
-                                    <input autocomplete='off' class='form-control card-cvc' maxlength="3" placeholder='ex. 311' size='4' type='text'>
+                                    <input autocomplete='off'
+                                           class='form-control card-cvc' 
+                                           maxlength="3" 
+                                           placeholder='ex. 311' 
+                                           size='4' 
+                                           type='text'
+                                    >
                                 </div>
                                 <div class='col-xs-12 col-md-4 form-group expiration required'>
                                     <label class='control-label'>Expiration Month</label> 
-                                    <input class='form-control card-expiry-month' maxlength="2" placeholder='MM' size='2' type='text'>
+                                    <input class='form-control card-expiry-month'
+                                           maxlength="2" 
+                                           placeholder='MM' 
+                                           size='2' 
+                                           type='text'
+                                    >
                                 </div>
                                 <div class='col-xs-12 col-md-4 form-group expiration required'>
                                     <label class='control-label'>Expiration Year</label> 
-                                    <input class='form-control card-expiry-year' maxlength="4" placeholder='YYYY' size='4' type='text'>
+                                    <input class='form-control card-expiry-year'
+                                           maxlength="4" 
+                                           placeholder='YYYY' 
+                                           size='4' 
+                                           type='text'
+                                    >
                                 </div>
                             </div>                     
                             <div class="form-row row">
@@ -130,27 +179,30 @@
                             </div>
                         </div>
                     </form>
-
+                    
                     {{-- PAYPAL --}}
-                    <div class="payment_item active">
+                    <div class="payment_item active mt-5">
+                        <h3>Pay via PayPal</h3>
                         <div class="radion_btn">
-                            <input type="radio" id="f-option6" name="selector">
+                            <input type="radio" 
+                                   id="f-option6" 
+                                   name="selector"
+                            >
                             <label for="f-option6">Paypal </label>
                             <img src="img/product/card.jpg" alt="">
                             <div class="check"></div>
                         </div>
-                        <p>
-                            Pay via PayPal; 
-                            you can pay with your credit card if you don’t have a PayPal
-                            account.
-                        </p>
+                        
+                        <div class="creat_account">
+                            <input type="checkbox" 
+                                   id="f-option4" 
+                                   name="selector"
+                            >
+                            <label for="f-option4">I’ve read and accept the </label>
+                            <a href="#">terms & conditions*</a>
+                        </div>
+                        <a class="primary-btn" href="#">Proceed to Paypal</a>
                     </div>
-                    <div class="creat_account">
-                        <input type="checkbox" id="f-option4" name="selector">
-                        <label for="f-option4">I’ve read and accept the </label>
-                        <a href="#">terms & conditions*</a>
-                    </div>
-                    <a class="primary-btn" href="#">Proceed to Paypal</a>
                 </div>                           
 
                 {{-- CART --}}
@@ -158,7 +210,7 @@
                     <div class="order_box">
                         <h2>Your Order</h2>
                         <ul class="list">
-                            <li><a href="#">Product <span>Total</span></a></li>
+                            <li><a href="#"><strong>Product</strong> <span>Total</span></a></li>
                             @foreach (Cart::getContent() as $product)                               
                                 <li>
                                     <a href="#">{{ substr($product->model->name,0,10) }}...
@@ -203,25 +255,26 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-
-                {{-- COUPON --}}
-                <div class="col-lg-3">
+                    {{-- START COUPON --}}
                     <div class="code">
-                        <p>Have a code ?</p>
-                        
+                        <p>Have a code ?</p>                        
                         <form action="{{ route('coupon.store') }}" method="POST">
                             @csrf
                             <div class="d-flex align-items-center contact_form">
-                                <input type="text" name="coupon" id="coupon" class="form-control" placeholder="Coupon Code">
+                                <input type="text" 
+                                       name="coupon" 
+                                       id="coupon" 
+                                       class="form-control" 
+                                       placeholder="Coupon Code"
+                                >
                                 <button class="primary-btn my-3" type="submit">
                                     <i class="fas fa-check"></i>
                                 </button>
                             </div>
                         </form>
-                    </div>
-                </div>                 
-
+                    </div>   
+                    {{-- END COUPON --}}  
+                </div>                
             </div>
         </div>
     </div>
@@ -236,10 +289,16 @@
 
         $('form.require-validation').bind('submit', function(e) {
             var $form = $(".require-validation"),
-            inputSelector = ['input[type=email]', 'input[type=password]', 'input[type=text]', 'input[type=file]', 'textarea'].join(', '),
-            $inputs = $form.find('.required').find(inputSelector),
-            $errorMessage = $form.find('div.error'),
-            valid = true;
+                inputSelector = [
+                    'input[type=email]',
+                    'input[type=password]', 
+                    'input[type=text]', 
+                    'input[type=file]', 
+                    'textarea'].join(', '),
+                $inputs = $form.find('.required').find(inputSelector),
+                $errorMessage = $form.find('div.error'),
+                valid = true;
+            
             $errorMessage.addClass('hide');
             $('.has-error').removeClass('has-error');
 
