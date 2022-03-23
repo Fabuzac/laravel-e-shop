@@ -33,6 +33,9 @@ class CheckoutController extends Controller
             return redirect()->route('home');
         }
 
+        //\Cart::remove();
+        //session()->forget('coupon');
+
         return view('confirmation');
     }
 
@@ -61,9 +64,13 @@ class CheckoutController extends Controller
     {
         // dd($request->all());
 
+        $total = \Cart::getTotal();
+
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create ([
-            'amount' => \Cart::getTotal() * 100,
+            'amount' => session()->has('coupon') 
+                        ? round($total - session()->get('coupon')['discount'], 2) * 100 
+                        : $total * 100,
             'currency' => 'EUR',
             'source' => $request->stripeToken,
             'description' => 'This is test payment',

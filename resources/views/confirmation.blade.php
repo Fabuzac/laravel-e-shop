@@ -109,6 +109,20 @@
 									<p>${{ Cart::getSubTotal() }}</p>
 								</td>
 							</tr>
+
+							<tr>
+								<td>Discount</td>
+								<td><h5></h5></td>
+								<td>									
+									@if (session()->has('coupon'))
+										<li>
+											<a href="#">Discount {{ session()->get('coupon')['name'] }}
+												<span>- $ {{ session()->get('coupon')['discount'] }}</span>
+											</a>
+										</li>										                             
+									@endif									
+								</td>
+							</tr>
 							<tr>
 								<td>
 									<h4>Shipping</h4>
@@ -128,7 +142,19 @@
 									<h5></h5>
 								</td>
 								<td>
-									<p>${{ Cart::getTotal() }}</p>
+									<ul>
+									<li><a href="#">Shipping <span>$00.00</span></a></li>
+										<li>
+											<a href="#">Total 
+												<span>${{ 
+													session()->has('coupon')
+													? Cart::getTotal() - session()->get('coupon')['discount'] 
+													: Cart::getTotal()
+												}}
+												</span>
+											</a>
+										</li>
+									</ul>
 								</td>
 							</tr>
 						</tbody>

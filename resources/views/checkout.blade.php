@@ -27,6 +27,14 @@
 <!--================Checkout Area =================-->
 <section class="checkout_area section_gap">
     <div class="container">
+
+        @if ($message = Session::get('success'))
+            <div class="text-light alert alert-succes alert-block bg-success">
+                <button type="button" data-dismiss="alert" class="close">X</button>
+                {{ $message }}
+            </div>
+        @endif
+
         {{-- USER INFO --}}
         <div class="billing_details">
             <div class="row">
@@ -143,9 +151,7 @@
                         <a href="#">terms & conditions*</a>
                     </div>
                     <a class="primary-btn" href="#">Proceed to Paypal</a>
-                </div>
-
-                           
+                </div>                           
 
                 {{-- CART --}}
                 <div class="col-lg-4">
@@ -168,8 +174,33 @@
                         </ul>
                         <ul class="list list_2">
                             <li><a href="#">Subtotal <span>${{ Cart::getSubTotal() }}</span></a></li>
-                            <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li>
-                            <li><a href="#">Total <span>${{ Cart::getSubTotal() }}</span></a></li>
+
+                            @if (session()->has('coupon'))
+                                <li>
+                                    <a href="#">Discount {{ session()->get('coupon')['name'] }}
+                                        <span>- $ {{ session()->get('coupon')['discount'] }}</span>
+                                    </a>
+                                </li>
+                                <form action="{{ route('coupon.destroy') }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn" type="submit">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>                                
+                            @endif
+
+                            <li><a href="#">Shipping <span>$00.00</span></a></li>
+                            <li>
+                                <a href="#">Total 
+                                    <span>${{ 
+                                        session()->has('coupon')
+                                        ? Cart::getTotal() - session()->get('coupon')['discount'] 
+                                        : Cart::getTotal()
+                                    }}
+                                    </span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -178,9 +209,11 @@
                 <div class="col-lg-3">
                     <div class="code">
                         <p>Have a code ?</p>
-                        <form action="#" method="POST">
-                            <div class="d-flex  align-items-center contact_form">
-                                <input type="text" name="coupon_code" id="coupon_code" class="form-control" placeholder="Coupon Code">
+                        
+                        <form action="{{ route('coupon.store') }}" method="POST">
+                            @csrf
+                            <div class="d-flex align-items-center contact_form">
+                                <input type="text" name="coupon" id="coupon" class="form-control" placeholder="Coupon Code">
                                 <button class="primary-btn my-3" type="submit">
                                     <i class="fas fa-check"></i>
                                 </button>

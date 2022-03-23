@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CouponsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,9 @@ Route::delete('/cart/{product}', [CartController::class, 'delete'])->name('cart.
 Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.index')->middleware('auth');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 Route::get('/confirmation', [CheckoutController::class, 'success'])->name('checkout.success');
+
+Route::post('/coupon', [CouponsController::class, 'store'])->name('coupon.store');
+Route::delete('/coupon', [CouponsController::class, 'destroy'])->name('coupon.destroy');
 
 Route::get('/orders', [HomeController::class, 'orders'])->name('orders');
 Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
