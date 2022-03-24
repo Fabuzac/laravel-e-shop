@@ -67,7 +67,7 @@
                                 <li class="navbar-nav ml-auto">                                    
                                     @if (Auth::user())                                             
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Orders</a>
+                                            <a class="nav-link" href="{{ route('orders') }}">Orders</a>
                                         </li>
                                         <li class="nav-item">            
                                             <a class="nav-link"

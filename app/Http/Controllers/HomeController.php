@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Coupon;
 use App\Models\Product;
+use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -73,6 +76,10 @@ class HomeController extends Controller
     
     public function orders() 
     {
-        return view('orders');
+        $user = auth()->user();
+
+        return view('orders', [
+            'orders' => $user->order,               
+        ]);
     }
 }
