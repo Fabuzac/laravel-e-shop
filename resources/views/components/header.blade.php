@@ -64,25 +64,23 @@
                     <ul class="ml-auto navbar-nav ml-auto">
                         <li class="nav-item">
                             <div>
-                                <li class="navbar-nav ml-auto">
-                                    @if (Auth::user())    
-                        
-                                        @if (Auth::user()->role === 'ADMIN')
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Dashboard Admin</a>
-                                            </li> 
-                                        @endif
+                                <li class="navbar-nav ml-auto">                                    
+                                    @if (Auth::user())                                             
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Orders</a>
+                                        </li>
                                         <li class="nav-item">            
                                             <a class="nav-link"
                                                 href="{{ route('logout') }}"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();"
                                             >
                                                 {{ __('Logout') }}
                                             </a>
                                             <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                 @csrf            
                                             </form>
-                                        </li>						
+                                        </li>
                                     @else        
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('login') }}">

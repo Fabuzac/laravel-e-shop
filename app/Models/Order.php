@@ -24,4 +24,9 @@ class Order extends Model
     {
         return $this->belongsToMany('App\Models\Product')->withPivot('quantity');
     }
+
+    public function coupons()
+    {
+        return $this->belongsToMany('App\Models\Coupon')->withPivot('value');
+    }
 }

@@ -33,9 +33,9 @@
 					<div class="details_item">
 						<h4>Order Info</h4>
 						<ul class="list">
-							<li><a href="#"><span>Order number</span> : 60235</a></li>
-							<li><a href="#"><span>Date</span> : 19/03/2022</a></li>
-							<li><a href="#"><span>Total</span> : $ 2210</a></li>							
+							<li><a href="#"><span>Order number</span> : #{{ $order->id }}</a></li>
+							<li><a href="#"><span>Date</span> : {{ date_format($order->created_at, 'd M Y')}}</a></li>
+							<li><a href="#"><span>Total</span> : EUR {{ round($order->paiement_total, 2) }}</a></li>							
 						</ul>
 					</div>
 				</div>
@@ -43,11 +43,17 @@
 					<div class="details_item">
 						<h4>Billing Address</h4>
 						<ul class="list">
-							<li><a href="#"><span>Number</span> : 56</a></li>
-							<li><a href="#"><span>Street</span> : Boulevard taratintin</a></li>
-							<li><a href="#"><span>City</span> : Nantes</a></li>
-							<li><a href="#"><span>Postcode </span> : 44200</a></li>
+							<li>
+								<a href="#">
+									<span>Name</span> : 
+									{{ $order->paiement_firstname }} {{ $order->paiement_lastname }}
+								</a>
+							</li>							
+							<li><a href="#"><span>Address</span> : {{ $order->paiement_address }}</a></li>
+							<li><a href="#"><span>Postcode </span> : {{ $order->paiement_postalcode }}</a></li>
+							<li><a href="#"><span>City</span> : {{ $order->paiement_city }}</a></li>
 							<li><a href="#"><span>Country</span> : France</a></li>
+							<li><a href="#"><span>Phone</span> : {{ $order->paiement_phone }}</a></li>
 						</ul>
 					</div>
 				</div>
@@ -55,11 +61,17 @@
 					<div class="details_item">
 						<h4>Shipping Address</h4>
 						<ul class="list">
-							<li><a href="#"><span>Number</span> : 56</a></li>
-							<li><a href="#"><span>Street</span> : Boulevard taratintin</a></li>
-							<li><a href="#"><span>City</span> : Nantes</a></li>
-							<li><a href="#"><span>Postcode </span> : 44200</a></li>
+							<li>
+								<a href="#">
+									<span>Name</span> : 
+									{{ $order->paiement_firstname }} {{ $order->paiement_lastname }}
+								</a>
+							</li>							
+							<li><a href="#"><span>Address</span> : {{ $order->paiement_address }}</a></li>
+							<li><a href="#"><span>Postcode </span> : {{ $order->paiement_postalcode }}</a></li>
+							<li><a href="#"><span>City</span> : {{ $order->paiement_city }}</a></li>
 							<li><a href="#"><span>Country</span> : France</a></li>
+							<li><a href="#"><span>Phone</span> : {{ $order->paiement_phone }}</a></li>
 						</ul>
 					</div>
 				</div>
@@ -81,47 +93,37 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach (Cart::getContent() as $product)
+							{{-- @foreach (Cart::getContent() as $product) --}}
+							@foreach ($order->products as $product)
 							<tr>
 								<td>
-									<p>{{ $product->model->name }}</p>
+									<p>{{ $product->name }}</p>
 									<img class="img-thumbnail" style="width: 15%;" 
-										 src="{{ Voyager::image($product->model->image) }}" 
+										 src="{{ $product->image }}" 
 										 alt="image product"
                                     >
 								</td>
 								<td>
-									<h5>x {{ $product->quantity }}</h5>
+									<h5>x {{ $product->pivot->quantity }}</h5>
 								</td>
 								<td>
-									<p>${{ $product->model->price }}</p>
+									<p>${{ round($product->price * $product->pivot->quantity, 2) }}</p>
 								</td>
-							</tr>
+							</tr>							
 							@endforeach
-							<tr>
-								<td>
-									<h4>Subtotal</h4>
-								</td>
-								<td>
-									<h5></h5>
-								</td>
-								<td>
-									<p>${{ Cart::getSubTotal() }}</p>
-								</td>
-							</tr>
 
 							<tr>
+								@if ($order->discount)
 								<td>Discount</td>
 								<td><h5></h5></td>
-								<td>									
-									@if (session()->has('coupon'))
-										<li>
-											<a href="#">Discount {{ session()->get('coupon')['name'] }}
-												<span>- $ {{ session()->get('coupon')['discount'] }}</span>
-											</a>
-										</li>										                             
-									@endif									
-								</td>
+								<td>																		
+									<li>
+										<a href="#">Discount {{ $order->discount }}
+											<span>- $ 200</span>
+										</a>
+									</li>								
+								</td>		                             
+								@endif																	
 							</tr>
 							<tr>
 								<td>
@@ -147,9 +149,7 @@
 										<li>
 											<a href="#">Total 
 												<span>${{ 
-													session()->has('coupon')
-													? Cart::getTotal() - session()->get('coupon')['discount'] 
-													: Cart::getTotal()
+													$order->paiement_total
 												}}
 												</span>
 											</a>

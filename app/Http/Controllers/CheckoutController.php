@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Stripe;
 use App\Models\Order;
+use App\Models\Coupon;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
@@ -29,16 +30,24 @@ class CheckoutController extends Controller
     }
 
     // Sucess paiement
-    public function success()
+    public function success(Request $request)
     {
         if(!session()->has('success')) {
             return redirect()->route('home');
         }
 
+        $order = Order::latest()->first();
+        $orderProduct = OrderProduct::where('order_id', $order->id)->get();
+        $coupon = Coupon::all();
+                    
         //\Cart::remove();
         //session()->forget('coupon');
 
-        return view('confirmation');
+        return view('confirmation', [
+            'order' => $order,
+            'products' => $orderProduct,
+            'coupon' => $coupon
+        ]);
     }
 
     // public function getTotalWithDiscount($total)
@@ -97,6 +106,7 @@ class CheckoutController extends Controller
             'paiement_email' => $request->email,
             'paiement_address' => $request->address,
             //'paiement_address2' => $request->address2,
+            //'paiement_country' => $request->country,
             'paiement_city' => $request->city,
             'paiement_postalcode' => $request->postalcode,
             'discount' => session()->get('coupon')['name'] ?? null,
