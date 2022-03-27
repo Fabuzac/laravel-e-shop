@@ -30,7 +30,7 @@ class CheckoutController extends Controller
     }
 
     // Sucess paiement
-    public function success(Request $request)
+    public function success()
     {
         if(!session()->has('success')) {
             return redirect()->route('home');
@@ -38,14 +38,13 @@ class CheckoutController extends Controller
 
         $order = Order::latest()->first();
         $orderProduct = OrderProduct::where('order_id', $order->id)->get();
-                    
-        //\Cart::remove();
+                            
+        // \Cart::remove($id);
         //session()->forget('coupon');
 
         return view('confirmation', [
             'order' => $order,
-            'products' => $orderProduct,
-            
+            'products' => $orderProduct,            
         ]);
     }
 
