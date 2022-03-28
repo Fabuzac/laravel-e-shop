@@ -77,7 +77,7 @@ class HomeController extends Controller
     public function orders() 
     {
         $user = auth()->user();
-
+        
         return view('orders', [
             'orders' => $user->order,               
         ]);

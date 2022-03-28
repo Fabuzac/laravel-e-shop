@@ -75,11 +75,7 @@
 						</ul>
 					</div>
 				</div>
-			</div>
-
-			<div>
-				<h4>My Bill PDF:</h4><span>01.PDF</span>
-			</div>
+			</div>			
 
 			<div class="order_details_table">
 				<h2>Order Details</h2>

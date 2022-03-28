@@ -42,8 +42,8 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
     ];
 
-    public function orders()
+    public function order()
     {
-        return $this->hasMany('App\Models\Orders');
+        return $this->hasMany('App\Models\Order');
     }
 }
