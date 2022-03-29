@@ -26,7 +26,11 @@ class CheckoutController extends Controller
     // Gere le paiements
     public function checkout() 
     {
-        return view('checkout');
+        if (count(\Cart::getContent()) > 0) {    
+            return view('checkout');
+        }
+        
+        return redirect()->route('home');        
     }
 
     // Sucess paiement
