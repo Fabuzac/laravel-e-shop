@@ -17,7 +17,9 @@
     line-height: 20px !important;
 }
 
-
+.banner-area .active-banner-slider .owl-nav .owl-prev, .banner-area .active-banner-slider .owl-nav .owl-next {
+    display: none !important;
+}
 /* STRIPE */
 /* Variables */
 

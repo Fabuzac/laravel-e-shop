@@ -8,47 +8,42 @@
 			<div class="col-lg-12">
 				<div class="active-banner-slider owl-carousel">
 					<!-- single-slide -->
+					@foreach($news as $new)					
 					<div class="row single-slide align-items-center d-flex">
 						<div class="col-lg-5 col-md-6">
 							<div class="banner-content">
-								<h1>Nike New <br>Collection!</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+								<h2>{{ $new->name }}<br>Collection!</h2>
+								<p>{{ $new->details }}</p>
 								<div class="add-bag d-flex align-items-center">
-									<a class="add-btn" href="#">
-										<i class="fa fa-shopping-cart" style="color:#fff;font-size:19px;"></i>
-									</a>
-									<span class="add-text text-uppercase">Add to Cart</span>
+									<form action="{{ route('cart.store') }}" method="POST">
+										@csrf
+										<input type="hidden" name="id" value="{{ $new->id }}">
+										<input type="hidden" name="name" value="{{ $new->name }}">
+										<input type="hidden" name="price" value="{{ $new->price }}">
+										<button type="submit" class="primary-btn">
+											<a class="add-btn" href="#">
+												<i class="fa fa-shopping-cart" 
+												   style="color:#fff;font-size:19px;"></i>
+											</a>
+											<span class="text-light add-text text-uppercase">
+												Add to Cart
+											</span>
+										</button>
+									</form>																	
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-7">
 							<div class="banner-img">
-								<img class="img-fluid img-home" src="img/banner/banner-img.png" alt="">
+								<img class="img-fluid img-home" 
+									 style="width:50%;" 
+									 src="{{ Voyager::image($new->image) }}" 
+									 alt="image product"
+								>
 							</div>
 						</div>
 					</div>
-					<!-- single-slide -->
-					<div class="row single-slide">
-						<div class="col-lg-5">
-							<div class="banner-content">
-								<h1>Nike New <br>Collection!</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-								<div class="add-bag d-flex align-items-center">
-									<a class="add-btn" href="#">
-										<i class="fa fa-shopping-cart" style="color:#fff;font-size:19px;"></i>
-									</a>
-									<span class="add-text text-uppercase">Add to Bag</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<div class="banner-img">
-								<img class="img-fluid img-home" src="img/running_shoes.png" alt="">
-							</div>
-						</div>
-					</div>
+					@endforeach					
 				</div>
 			</div>
 		</div>
@@ -89,7 +84,7 @@
 					<div class="col-lg-8 col-md-8">
 						<div class="single-deal">
 							<div class="overlay"></div>
-							<img class="img-fluid w-100" src="img/category/c1.jpg" alt="">
+							<img class="img-fluid w-100" src="img/category/c1.jpg" alt="image product">
 							<a href="img/category/c1.jpg" class="img-pop-up" target="_blank">
 								<div class="deal-details">
 									<h6 class="deal-title">Sneaker for Sports</h6>
@@ -100,7 +95,7 @@
 					<div class="col-lg-4 col-md-4">
 						<div class="single-deal">
 							<div class="overlay"></div>
-							<img class="img-fluid w-100" src="img/category/c2.jpg" alt="">
+							<img class="img-fluid w-100" src="img/category/c2.jpg" alt="image product">
 							<a href="img/category/c2.jpg" class="img-pop-up" target="_blank">
 								<div class="deal-details">
 									<h6 class="deal-title">Sneaker for Sports</h6>
@@ -111,7 +106,7 @@
 					<div class="col-lg-4 col-md-4">
 						<div class="single-deal">
 							<div class="overlay"></div>
-							<img class="img-fluid w-100" src="img/category/c3.jpg" alt="">
+							<img class="img-fluid w-100" src="img/category/c3.jpg" alt="image product">
 							<a href="img/category/c3.jpg" class="img-pop-up" target="_blank">
 								<div class="deal-details">
 									<h6 class="deal-title">Product for Couple</h6>
@@ -122,7 +117,7 @@
 					<div class="col-lg-8 col-md-8">
 						<div class="single-deal">
 							<div class="overlay"></div>
-							<img class="img-fluid w-100" src="img/category/c4.jpg" alt="">
+							<img class="img-fluid w-100" src="img/category/c4.jpg" alt="image product">
 							<a href="img/category/c4.jpg" class="img-pop-up" target="_blank">
 								<div class="deal-details">
 									<h6 class="deal-title">Sneaker for Sports</h6>
@@ -135,10 +130,10 @@
 			<div class="col-lg-4 col-md-6">
 				<div class="single-deal">
 					<div class="overlay"></div>
-					<img class="img-fluid w-100" src="img/category/c5.jpg" alt="">
-					<a href="img/category/c5.jpg" class="img-pop-up" target="_blank">
+					<img class="img-fluid w-100" src="img/category/c3.jpg" alt="image product">
+					<a href="img/category/c6.jpg" class="img-pop-up" target="_blank">
 						<div class="deal-details">
-							<h6 class="deal-title">Sneaker for Sports</h6>
+							<h6 class="deal-title">New Article</h6>
 						</div>
 					</a>
 				</div>
@@ -162,11 +157,13 @@
 			</div>
 			<div class="row">
 				<!-- single product -->
-				@foreach ($products as $product)
+				@foreach ($latestproducts as $product)
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
 							<a href="{{ route('shop.show', $product->slug) }}">									
-								<img class="img-fluid" src="{{ Voyager::image($product->image) }}" alt="image product">
+								<img class="img-fluid" 
+									 src="{{ Voyager::image($product->image) }}" 
+									 alt="image product">
 							</a>	
 							<div class="product-details">
 								<h6>{{ $product->name }}</h6>
@@ -176,18 +173,23 @@
 								</div>
 								<div class="prd-bottom">
 									<a href="#" class="social-info">
-										<span> <i class="fas fa-shopping-bag"></i> </span>
-										<p class="hover-text">add to bag</p>
+										<form action="{{ route('cart.store') }}" method="POST">
+											@csrf
+											<input type="hidden" name="id" value="{{ $product->id }}">
+											<input type="hidden" name="name" value="{{ $product->name }}">
+											<input type="hidden" name="price" value="{{ $product->price }}">											
+											<button type="submit" class="">												
+												<span><i class="fas fa-shopping-bag"></i></span>
+												<p class="hover-text">add to bag</p>																				
+											</button>
+										</form>											
 									</a>
 									<a href="#" class="social-info">
 										<span> <i class="fas fa-heart"></i> </span>
 										<p class="hover-text">Wishlist</p>
 									</a>
-									<a href="#" class="social-info">
-										<span> <i class="fas fa-exchange-alt"></i> </span>										
-										<p class="hover-text">compare</p>
-									</a>
-									<a href="#" class="social-info">
+									
+									<a href="{{ route('shop.show', $product->slug) }}" class="social-info">
 										<span> <i class="fa fa-eye"></i> </span>
 										<p class="hover-text">view more</p>
 									</a>									
@@ -205,7 +207,7 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6 text-center">
 					<div class="section-title">
-						<h1>Coming Products</h1>
+						<h1>Bestseller</h1>
 						<p>
 							Lorem ipsum dolor sit amet.
 						</p>
@@ -214,36 +216,42 @@
 			</div>
 			<div class="row">
 				<!-- single product -->
-				@foreach ($products as $product)
+				@foreach ($bestsellers as $bestseller)				
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
-							<a href="{{ route('shop.show', $product->slug) }}">									
-								<img class="img-fluid" src="{{ Voyager::image($product->image) }}" alt="image product">
+							<a href="{{ route('shop.show', $bestseller->slug) }}">									
+								<img class="img-fluid" 
+									 src="{{ Voyager::image($bestseller->image) }}" 
+									 alt="image product">
 							</a>	
 							<div class="product-details">
-								<h6>{{ $product->name }}</h6>
-								<p>{{ $product->details }}</p>
+								<h6>{{ $bestseller->name }}</h6>
+								<p>{{ $bestseller->details }}</p>
 								<div class="price">
-									<h6>${{ $product->price }}</h6>										
+									<h6>${{ $bestseller->price }}</h6>										
 								</div>
 								<div class="prd-bottom">
 									<a href="#" class="social-info">
-										<span> <i class="fas fa-shopping-bag"></i> </span>
-										<p class="hover-text">add to bag</p>
+										<form action="{{ route('cart.store') }}" method="POST">
+											@csrf
+											<input type="hidden" name="id" value="{{ $bestseller->id }}">
+											<input type="hidden" name="name" value="{{ $bestseller->name }}">
+											<input type="hidden" name="price" value="{{ $bestseller->price }}">											
+											<button type="submit" class="">												
+												<span><i class="fas fa-shopping-bag"></i></span>
+												<p class="hover-text">add to bag</p>																				
+											</button>
+										</form>											
 									</a>
 									<a href="#" class="social-info">
 										<span> <i class="fas fa-heart"></i> </span>
 										<p class="hover-text">Wishlist</p>
-									</a>
-									<a href="#" class="social-info">
-										<span> <i class="fas fa-exchange-alt"></i> </span>										
-										<p class="hover-text">compare</p>
-									</a>
-									<a href="#" class="social-info">
+									</a>									
+									<a href="{{ route('shop.show', $bestseller->slug) }}" class="social-info">
 										<span> <i class="fa fa-eye"></i> </span>
 										<p class="hover-text">view more</p>
-									</a>								
-								</div>
+									</a>									
+								</div>								
 							</div>
 						</div>
 					</div>
@@ -303,4 +311,3 @@
 </section>
 <!-- end features Area -->
 @endsection
-
