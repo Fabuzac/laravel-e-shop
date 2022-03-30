@@ -24,11 +24,13 @@
 				<ul class="main-categories">
 					@foreach ($categories as $category)
 						<li class="main-nav-list">
-							<a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable">
-								{{ $category->label }}<span class="number">( {{ count($category->products) }} )</span>
+							<a class=""
+							   href="{{ route('shop.index', ['category' => $category->label]) }}">
+								{{ $category->label }}
+								<span class="number">( {{ count($category->products) }} )</span>								
 							</a>
 						</li>
-					@endforeach
+					@endforeach						
 				</ul>
 			</div>
 			<div class="sidebar-filter mt-50">
@@ -107,11 +109,10 @@
 			<!-- Start Filter Bar -->
 			<div class="filter-bar d-flex flex-wrap align-items-center">
 				<div class="sorting">
-					<select>
-						<option value="1">Default sorting</option>
-						<option value="1">Default sorting</option>
-						<option value="1">Default sorting</option>
-					</select>
+					<div class="dropdown">
+						<a href="{{ route('shop.index', ['category' => request()->category, 'sort' => 'asc']) }}">Croissant</a>
+						<a href="{{ route('shop.index', ['category' => request()->category, 'sort' => 'desc']) }}">Decroissant</a>
+					</div>
 				</div>
 				<div class="sorting mr-auto">
 					<select>
@@ -123,10 +124,7 @@
 				<div class="pagination">
 					<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 					<a href="#" class="active">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-					<a href="#">6</a>
+					<a href="#" class="active">2</a>
 					<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 				</div>
 			</div>
@@ -185,10 +183,9 @@
 				<div class="pagination">
 					<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 					<a href="#" class="active">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
+					<div class="" style="width: 50%;"> {{ $products->appends(request()->input())->links() }} </div>
 					<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-					<a href="#">6</a>
+					
 					<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 				</div>
 			</div>
