@@ -28,14 +28,8 @@
                                data-toggle="dropdown" 
                                role="button" 
                                aria-haspopup="true"
-                               aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{ route('shop.index') }}">Shop</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('cart.index') }}">Cart</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('checkout.index') }}">Product Checkout</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('orders') }}">Product Order</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('checkout.success') }}">Confirmation</a></li>
-                            </ul>
+                               aria-expanded="false">Shop
+                            </a>                            
                         </li>
                         <li class="nav-item submenu dropdown">
                             <a href="blog.blade.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
