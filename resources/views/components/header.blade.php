@@ -32,20 +32,7 @@
                                 <li class="nav-item"><a class="nav-link" href="{{ route('blog')}}">Blog</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('single-blog') }}">Blog Details</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item submenu dropdown">
-                            <a href="#"     
-                               class="nav-link dropdown-toggle" 
-                               data-toggle="dropdown" 
-                               role="button" 
-                               aria-haspopup="true"
-                               aria-expanded="false">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('tracking') }}">Tracking</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('elements') }}">Elements</a></li>
-                            </ul>
-                        </li>
+                        </li>                        
                         <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
                     </ul>
 

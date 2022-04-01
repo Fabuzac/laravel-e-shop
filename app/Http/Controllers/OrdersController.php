@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -28,6 +29,10 @@ class OrdersController extends Controller
     {
 
         $order = Order::where('id', $id)->firstOrfail();
+        // $product = OrderProduct::where('product_id', $product_id)->firstOrfail();
+
+        // besoin de l'id product
+        // en corelation avec order
 
         $data = [            
             'order' => $order,
