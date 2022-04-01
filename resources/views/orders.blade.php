@@ -20,13 +20,16 @@
         <h2 class="text-center">Orders Details</h2>         
         @foreach($orders as $order)        
         <div class="table-responsive order_details_table">    
-            <h5>My Bill PDF:</h5><span>01.PDF</span>          
+            <h5>My Bill PDF:</h5>
+            <span>
+                <a target="_blank" href="{{ route('pdf', $order->id) }}">{{ strtotime($order->created_at) }}.PDF</a>
+            </span>          
             <div class="d-flex justify-content-between my-5 px-5">                
                 <h4>
                     <i class="fas fa-receipt"></i>
                      Order #{{ $order->id }}                                      
                 </h4>                
-                <h4>Date : {{ date_format($order->created_at, 'd M Y')}}</h4>
+                <h4>Date : {{ date_format($order->created_at, 'd M Y') }}</h4>
             </div>
             <table class="table">
                 <thead>                    

@@ -22,14 +22,8 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ route('home') }}">Home</a>
                         </li>
-                        <li class="nav-item submenu dropdown">
-                            <a href="{{ route('shop.index') }}" 
-                               class="nav-link dropdown-toggle" 
-                               data-toggle="dropdown" 
-                               role="button" 
-                               aria-haspopup="true"
-                               aria-expanded="false">Shop
-                            </a>                            
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('shop.index') }}">Shop</a>                         
                         </li>
                         <li class="nav-item submenu dropdown">
                             <a href="blog.blade.php" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"

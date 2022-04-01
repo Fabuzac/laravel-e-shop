@@ -8,6 +8,9 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CouponsController;
+use App\Http\Controllers\DomPdf;
+use App\Http\Controllers\OrdersController;
+use Stripe\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +52,12 @@ Route::get('/confirmation', [CheckoutController::class, 'success'])->name('check
 Route::post('/coupon', [CouponsController::class, 'store'])->name('coupon.store');
 Route::delete('/coupon', [CouponsController::class, 'destroy'])->name('coupon.destroy');
 
-Route::get('/orders', [HomeController::class, 'orders'])->name('orders')->middleware('auth');
+Route::get('/orders', [OrdersController::class, 'index'])->name('orders')->middleware('auth');
+Route::get('/pdf/{id}', [OrdersController::class, 'createPdf'])->name('pdf');
+
 Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
 Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
+
 
 //========
 // ADMIN =

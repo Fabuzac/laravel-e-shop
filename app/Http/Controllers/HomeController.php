@@ -89,13 +89,4 @@ class HomeController extends Controller
     {
         return view('single-blog');
     }    
-    
-    public function orders() 
-    {
-        $user = auth()->user();
-        
-        return view('orders', [
-            'orders' => $user->order,               
-        ]);
-    }
 }
