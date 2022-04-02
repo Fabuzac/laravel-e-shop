@@ -46,7 +46,7 @@
 							<li>
 								<a href="#">
 									<span>Name</span> : 
-									{{ $order->paiement_firstname }} {{ $order->paiement_lastname }}
+									{{ $order->paiement_firstname }} {{ $order->paiement_lastname }} 
 								</a>
 							</li>							
 							<li><a href="#"><span>Address</span> : {{ $order->paiement_address }}</a></li>
