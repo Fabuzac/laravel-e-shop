@@ -12,8 +12,11 @@ use Illuminate\Support\Facades\App;
 class OrdersController extends Controller
 {
     /**
+     * 
+     * Git bug
+     * 
      * Display a listing of the resource.
-     *
+     *  
      * @return \Illuminate\Http\Response
      */
     public function index()

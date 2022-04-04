@@ -17,6 +17,9 @@
 		.gray {
 			background-color: lightgray
 		}
+		.underline {
+			text-decoration: underline;
+		}
 	</style>
 </head>
 <body>
@@ -36,10 +39,11 @@
 		</tr>
   	</table>
   	<p>Commande number N°{{ strtotime($order->created_at) }}</p>
+	<h5>{{ date_format($order->created_at, 'd M Y') }}</h5>
  	<table align="left" width="100%">
 		<tr>
 			<td>
-				<p>Shipping Address:</p>
+				<p class="underline">Shipping Address:</p>
 				<pre>
 					{{ $order->paiement_firstname }} {{ $order->paiement_lastname }} 
 					{{ $order->paiement_address }}

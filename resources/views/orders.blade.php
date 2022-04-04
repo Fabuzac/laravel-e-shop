@@ -48,8 +48,7 @@
                     </tr>
                     @endforeach                    
                     <tr>
-                        <td><b>Total</b></td>
-                        <td></td>
+                        <td><b>Total</b></td>                        
                         <td>$ {{ round($order->paiement_total) }}</td>
                     </tr>
                 </tbody>
