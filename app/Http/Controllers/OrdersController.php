@@ -13,7 +13,7 @@ class OrdersController extends Controller
 {
     /**
      * 
-     * Git bug
+     * 
      * 
      * Display a listing of the resource.
      *  
