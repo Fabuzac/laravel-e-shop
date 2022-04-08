@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaypalPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::group(['prefix'=>'paypal'], function(){
-    Route::post('/order/create',[\App\Http\Controllers\Front\PaypalPaymentController::class,'create']);
-    Route::post('/order/capture/',[\App\Http\Controllers\Front\PaypalPaymentController::class,'capture']);
+    Route::post('/order/create',[PaypalPaymentController::class,'create']);
+    Route::post('/order/capture/',[PaypalPaymentController::class,'capture']);
 });
