@@ -18,6 +18,7 @@ class BlogController extends Controller
         return view('blog', [
             'articles' => Article::latest()->paginate(5),
             'categories' => Category::all(),
+            'bestCategories' => Category::latest()->paginate(3),
         ]);
     }
 
