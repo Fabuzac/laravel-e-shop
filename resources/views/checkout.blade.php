@@ -272,9 +272,9 @@
 
                                 purchase_units: [{
 
-                                amount: {
-                                    value: '77.44' // Can also reference a variable or function
-                                }
+                                    amount: {
+                                        value: '77.44' // Can also reference a variable or function
+                                    }
                                 }]
                             });
                             },

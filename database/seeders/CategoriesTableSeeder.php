@@ -14,7 +14,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['Sport', 'IT', 'Sciences', 'Physic', 'DEV'];
+        $categories = ['Technology', 'Lifestyle', 'Fashion', 'Art', 'Food', 'Architecture', 'Advanture'];
 
         for ($i=0; $i < count($categories) ; $i++) { 
             Category::create([

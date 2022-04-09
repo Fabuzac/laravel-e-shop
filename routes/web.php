@@ -1,16 +1,18 @@
 <?php
 
+use Stripe\Order;
+use App\Http\Controllers\DomPdf;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\CouponsController;
-use App\Http\Controllers\DomPdf;
 use App\Http\Controllers\OrdersController;
-use Stripe\Order;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CouponsController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +39,6 @@ Route::get('/category', [HomeController::class, 'category'])->name('category');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/elements', [HomeController::class, 'elements'])->name('elements');
 
-Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
-Route::get('/single-blog', [HomeController::class, 'singleBlog'])->name('single-blog');
-
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 Route::post('/cart/{product}/save', [CartController::class, 'save'])->name('cart.save');
@@ -58,6 +57,10 @@ Route::get('/pdf/{id}', [OrdersController::class, 'createPdf'])->name('pdf');
 Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
 Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
 
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/single-blog', [HomeController::class, 'singleBlog'])->name('single-blog');
+
+// Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 
 //========
 // ADMIN =

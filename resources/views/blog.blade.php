@@ -20,6 +20,7 @@
     <section class="blog_categorie_area">
         <div class="container">
             <div class="row">
+                {{-- foreache --}}
                 <div class="col-lg-4">
                     <div class="categories_post">
                         <img src="img/blog/cat-post/cat-post-3.jpg" alt="post">
