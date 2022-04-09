@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -15,8 +16,8 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog', [
-            'articles' => Article::latest()->paginate(4),
-            
+            'articles' => Article::latest()->paginate(5),
+            'categories' => Category::all(),
         ]);
     }
 

@@ -26,7 +26,7 @@
 						<li class="main-nav-list">
 							<a class=""
 							   href="{{ route('shop.index', ['category' => $category->label]) }}">
-								{{ $category->label }}
+								{{ $category->label }}  
 								<span class="number">( {{ count($category->products) }} )</span>								
 							</a>
 						</li>
@@ -184,8 +184,7 @@
 					<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
 					<a href="#" class="active">1</a>
 					<div class="" style="width: 50%;"> {{ $products->appends(request()->input())->links() }} </div>
-					<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-					
+					<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>					
 					<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 				</div>
 			</div>
