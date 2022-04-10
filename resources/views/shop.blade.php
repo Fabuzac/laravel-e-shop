@@ -121,11 +121,11 @@
 						<option value="1">Show 12</option>
 					</select>
 				</div>
-				<div class="pagination">
-					<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-					<a href="#" class="active">1</a>
-					<a href="#" class="active">2</a>
-					<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+				{{-- PAGINATION --}}
+				<div class="text-center" role="toolbar" aria-label="Toolbar with button groups">
+					<div role="group" aria-label="First group">
+						{{ $products->links('override.pagination') }}
+					</div>
 				</div>
 			</div>
 			<!-- End Filter Bar -->
@@ -171,24 +171,12 @@
 				</div>
 			</section>
 			<!-- End Best Seller -->
-			<!-- Start Filter Bar -->
-			<div class="filter-bar d-flex flex-wrap align-items-center">
-				<div class="sorting mr-auto">
-					<select>
-						<option value="1">Show 12</option>
-						<option value="1">Show 13</option>
-						<option value="1">Show 12</option>
-					</select>
-				</div>
-				<div class="pagination">
-					<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-					<a href="#" class="active">1</a>
-					<div class="" style="width: 50%;"> {{ $products->appends(request()->input())->links() }} </div>
-					<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>					
-					<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+			{{-- PAGINATION --}}
+			<div class="text-center" role="toolbar" aria-label="Toolbar with button groups">
+				<div role="group" aria-label="First group">
+					{{ $products->links('override.pagination') }}
 				</div>
 			</div>
-			<!-- End Filter Bar -->
 		</div>
 	</div>
 </div>	

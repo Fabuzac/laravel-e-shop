@@ -178,9 +178,9 @@
 											<input type="hidden" name="id" value="{{ $product->id }}">
 											<input type="hidden" name="name" value="{{ $product->name }}">
 											<input type="hidden" name="price" value="{{ $product->price }}">											
-											<button type="submit" class="">												
+											<button type="submit" class="form-btn">												
 												<span><i class="fas fa-shopping-bag"></i></span>
-												<p class="hover-text">add to bag</p>																				
+												<p class="hover-text">add to bag</p>
 											</button>
 										</form>											
 									</a>
@@ -237,7 +237,7 @@
 											<input type="hidden" name="id" value="{{ $bestseller->id }}">
 											<input type="hidden" name="name" value="{{ $bestseller->name }}">
 											<input type="hidden" name="price" value="{{ $bestseller->price }}">											
-											<button type="submit" class="">												
+											<button type="submit" class="form-btn">												
 												<span><i class="fas fa-shopping-bag"></i></span>
 												<p class="hover-text">add to bag</p>																				
 											</button>

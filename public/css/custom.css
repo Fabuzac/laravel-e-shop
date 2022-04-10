@@ -20,6 +20,23 @@
 .banner-area .active-banner-slider .owl-nav .owl-prev, .banner-area .active-banner-slider .owl-nav .owl-next {
     display: none !important;
 }
+
+.form-btn {
+    background-color: white;
+    border: none;
+}
+
+.page-link {
+    /* background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important; */
+    color: rgb(0, 0, 0) !important;
+}
+
+.page-item.active .page-link {
+    background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%) !important;
+    border: none;
+    height: 100%;
+}
+
 /* STRIPE */
 /* Variables */
 

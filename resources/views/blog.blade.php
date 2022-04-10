@@ -82,27 +82,12 @@
                         @endforeach
                         
                         <nav class="blog-pagination justify-content-center d-flex">
-                            <ul class="pagination">
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Previous">
-                                        <span aria-hidden="true">
-                                            <span class="lnr lnr-chevron-left"></span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="page-item"><a href="#" class="page-link">01</a></li>
-                                <li class="page-item active"><a href="#" class="page-link">02</a></li>
-                                <li class="page-item"><a href="#" class="page-link">03</a></li>
-                                <li class="page-item"><a href="#" class="page-link">04</a></li>
-                                <li class="page-item"><a href="#" class="page-link">09</a></li>
-                                <li class="page-item">
-                                    <a href="#" class="page-link" aria-label="Next">
-                                        <span aria-hidden="true">
-                                            <span class="lnr lnr-chevron-right"></span>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
+                            {{-- PAGINATION --}}
+                            <div class="text-center" role="toolbar" aria-label="Toolbar with button groups">
+                                <div role="group" aria-label="First group">
+                                    {{ $articles->links('override.pagination') }}
+                                </div>
+                            </div>
                         </nav>
                     </div>
                 </div>
