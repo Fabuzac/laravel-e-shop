@@ -70,11 +70,14 @@
                                     <div class="blog_post">
                                         <img src="img/blog/main-blog/m-blog-1.jpg" alt="">
                                         <div class="blog_details">
-                                            <a href="single-blog.html">
+                                            <a href="{{ route('article', $article->slug) }}">
                                                 <h2>{{ $article->title }}</h2>
                                             </a>
                                             <p>{{ $article->subtitle }}</p>
-                                            <a href="single-blog.html" class="white_bg_btn">View More</a>
+                                            <a href="{{ route('article', $article->slug) }}"
+                                               type="link" 
+                                               class="btn btn-warning">View more <i class="fas fa-arrow-right"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

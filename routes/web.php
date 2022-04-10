@@ -58,7 +58,7 @@ Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
 Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
-Route::get('/single-blog', [HomeController::class, 'singleBlog'])->name('single-blog');
+Route::get('/blog/{article:slug}', [BlogController::class, 'show'])->name('article');
 
 // Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 

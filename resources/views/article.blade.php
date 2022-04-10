@@ -25,20 +25,17 @@
                     <div class="single-post row">
                         <div class="col-lg-12">
                             <div class="feature-img">
-                                <img class="img-fluid" src="img/blog/feature-img1.jpg" alt="">
+                                <img class="img-fluid" src="{{ asset('img/blog/feature-img1.jpg') }}" alt="">
                             </div>
                         </div>
                         <div class="col-lg-3  col-md-3">
                             <div class="blog_info text-right">
                                 <div class="post_tag">
-                                    <a href="#">Food,</a>
-                                    <a class="active" href="#">Technology,</a>
-                                    <a href="#">Politics,</a>
-                                    <a href="#">Lifestyle</a>
+                                    <a href="#">{{ $article->category->label }},</a>                                    
                                 </div>
                                 <ul class="blog_meta list">
                                     <li><a href="#">Mark wiens<i class="fa fa-user"></i></a></li>
-                                    <li><a href="#">12 Dec, 2018<i class="fa fa-calendar"></i></a></li>
+                                    <li><a href="#">{{ date_format($article->created_at, 'd M Y') }}<i class="fa fa-calendar"></i></a></li>
                                     <li><a href="#">1.2M Views<i class="fa fa-eye"></i></a></li>
                                     <li><a href="#">06 Comments<i class="fa fa-comment"></i></a></li>
                                 </ul>
@@ -51,26 +48,13 @@
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
-                            <h2>Astronomy Binoculars A Great Alternative</h2>
+                            <h2>{{ $article->title }}</h2>
                             <p class="excert">
-                                MCSE boot camps have its supporters and its detractors. Some people do not understand
-                                why you should have to spend money on boot camp when you can get the MCSE study
-                                materials yourself at a fraction.
+                                {{ $article->subtitle }}
                             </p>
                             <p>
-                                Boot camps have its supporters and its detractors. Some people do not understand why
-                                you should have to spend money on boot camp when you can get the MCSE study materials
-                                yourself at a fraction of the camp price. However, who has the willpower to actually
-                                sit through a self-imposed MCSE training. who has the willpower to actually sit through
-                                a self-imposed
-                            </p>
-                            <p>
-                                Boot camps have its supporters and its detractors. Some people do not understand why
-                                you should have to spend money on boot camp when you can get the MCSE study materials
-                                yourself at a fraction of the camp price. However, who has the willpower to actually
-                                sit through a self-imposed MCSE training. who has the willpower to actually sit through
-                                a self-imposed
-                            </p>
+                                {{ $article->content }}
+                            </p>                            
                         </div>
                         <div class="col-lg-12">
                             <div class="quotes">
@@ -81,10 +65,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <img class="img-fluid" src="img/blog/post-img1.jpg" alt="">
+                                    <img class="img-fluid" src="{{ asset('img/blog/post-img1.jpg') }}" alt="">
                                 </div>
                                 <div class="col-6">
-                                    <img class="img-fluid" src="img/blog/post-img2.jpg" alt="">
+                                    <img class="img-fluid" src="{{ asset('img/blog/post-img2.jpg') }}" alt="">
                                 </div>
                                 <div class="col-lg-12 mt-25">
                                     <p>
@@ -103,45 +87,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="navigation-area">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                                <div class="thumb">
-                                    <a href="#"><img class="img-fluid" src="img/blog/prev.jpg" alt=""></a>
-                                </div>
-                                <div class="arrow">
-                                    <a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
-                                </div>
-                                <div class="detials">
-                                    <p>Prev Post</p>
-                                    <a href="#">
-                                        <h4>Space The Final Frontier</h4>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                                <div class="detials">
-                                    <p>Next Post</p>
-                                    <a href="#">
-                                        <h4>Telescopes 101</h4>
-                                    </a>
-                                </div>
-                                <div class="arrow">
-                                    <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
-                                </div>
-                                <div class="thumb">
-                                    <a href="#"><img class="img-fluid" src="img/blog/next.jpg" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="comments-area">
                         <h4>05 Comments</h4>
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
-                                        <img src="img/blog/c1.jpg" alt="">
+                                        <img src="{{ asset('img/blog/c1.jpg') }}" alt="">
                                     </div>
                                     <div class="desc">
                                         <h5><a href="#">Emilly Blunt</a></h5>
@@ -160,7 +113,7 @@
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
-                                        <img src="img/blog/c2.jpg" alt="">
+                                        <img src="{{ asset('img/blog/c2.jpg') }}" alt="">
                                     </div>
                                     <div class="desc">
                                         <h5><a href="#">Elsie Cunningham</a></h5>
@@ -179,7 +132,7 @@
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
-                                        <img src="img/blog/c3.jpg" alt="">
+                                        <img src="{{ asset('img/blog/c3.jpg') }}" alt="">
                                     </div>
                                     <div class="desc">
                                         <h5><a href="#">Annie Stephens</a></h5>
@@ -198,7 +151,7 @@
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
-                                        <img src="img/blog/c4.jpg" alt="">
+                                        <img src="{{ asset('img/blog/c4.jpg') }}" alt="">
                                     </div>
                                     <div class="desc">
                                         <h5><a href="#">Maria Luna</a></h5>
@@ -217,7 +170,7 @@
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
-                                        <img src="img/blog/c5.jpg" alt="">
+                                        <img src="{{ asset('img/blog/c5.jpg') }}" alt="">
                                     </div>
                                     <div class="desc">
                                         <h5><a href="#">Ina Hayes</a></h5>
@@ -262,7 +215,11 @@
                     <div class="blog_right_sidebar">
                         <aside class="single_sidebar_widget search_widget">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search Posts" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'">
+                                <input type="text" 
+                                       class="form-control" 
+                                       placeholder="Search Posts" 
+                                       onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = 'Search Posts'">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
                                 </span>
@@ -270,7 +227,7 @@
                             <div class="br"></div>
                         </aside>
                         <aside class="single_sidebar_widget author_widget">
-                            <img class="author_img rounded-circle" src="img/blog/author.png" alt="">
+                            <img class="author_img rounded-circle" src="{{ asset('img/blog/author.png') }}" alt="">
                             <h4>Charlie Barber</h4>
                             <p>Senior blog writer</p>
                             <div class="social_icon">
@@ -287,7 +244,7 @@
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">Popular Posts</h3>
                             <div class="media post_item">
-                                <img src="img/blog/popular-post/post1.jpg" alt="post">
+                                <img src="{{ asset('img/blog/popular-post/post1.jpg') }}" alt="post">
                                 <div class="media-body">
                                     <a href="blog-details.html">
                                         <h3>Space The Final Frontier</h3>
@@ -296,7 +253,7 @@
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="img/blog/popular-post/post2.jpg" alt="post">
+                                <img src="{{ asset('img/blog/popular-post/post2.jpg') }}" alt="post">
                                 <div class="media-body">
                                     <a href="blog-details.html">
                                         <h3>The Amazing Hubble</h3>
@@ -305,7 +262,7 @@
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="img/blog/popular-post/post3.jpg" alt="post">
+                                <img src="{{ asset('img/blog/popular-post/post3.jpg') }}" alt="post">
                                 <div class="media-body">
                                     <a href="blog-details.html">
                                         <h3>Astronomy Or Astrology</h3>
@@ -314,7 +271,7 @@
                                 </div>
                             </div>
                             <div class="media post_item">
-                                <img src="img/blog/popular-post/post4.jpg" alt="post">
+                                <img src="{{ asset('img/blog/popular-post/post4.jpg') }}" alt="post">
                                 <div class="media-body">
                                     <a href="blog-details.html">
                                         <h3>Asteroids telescope</h3>
@@ -325,55 +282,21 @@
                             <div class="br"></div>
                         </aside>
                         <aside class="single_sidebar_widget ads_widget">
-                            <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+                            <a href="#"><img class="img-fluid" src="{{ asset('img/blog/add.jpg') }}" alt=""></a>
                             <div class="br"></div>
                         </aside>
                         <aside class="single_sidebar_widget post_category_widget">
                             <h4 class="widget_title">Post Catgories</h4>
-                            <ul class="list cat-list">
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Technology</p>
-                                        <p>37</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Lifestyle</p>
-                                        <p>24</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Fashion</p>
-                                        <p>59</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Art</p>
-                                        <p>29</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Food</p>
-                                        <p>15</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Architecture</p>
-                                        <p>09</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex justify-content-between">
-                                        <p>Adventure</p>
-                                        <p>44</p>
-                                    </a>
-                                </li>
-                            </ul>
+                            @foreach ($categories as $category)
+                                <ul class="list cat-list">
+                                    <li class="main-nav-list">
+                                        <a href="#">
+                                            {{ $category->label }}  
+                                            <span class="number">( {{ count($category->products) }} )</span>								
+                                        </a>
+                                    </li>
+                                </ul>
+                            @endforeach   
                             <div class="br"></div>
                         </aside>
                         <aside class="single-sidebar-widget newsletter_widget">
@@ -395,23 +318,7 @@
                             <p class="text-bottom">You can unsubscribe at any time</p>
                             <div class="br"></div>
                         </aside>
-                        <aside class="single-sidebar-widget tag_cloud_widget">
-                            <h4 class="widget_title">Tag Clouds</h4>
-                            <ul class="list">
-                                <li><a href="#">Technology</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Architecture</a></li>
-                                <li><a href="#">Fashion</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Technology</a></li>
-                                <li><a href="#">Lifestyle</a></li>
-                                <li><a href="#">Art</a></li>
-                                <li><a href="#">Adventure</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Lifestyle</a></li>
-                                <li><a href="#">Adventure</a></li>
-                            </ul>
-                        </aside>
+                        
                     </div>
                 </div>
             </div>

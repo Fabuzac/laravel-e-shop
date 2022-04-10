@@ -85,8 +85,8 @@ class HomeController extends Controller
         return view('elements');
     }
 
-    public function singleBlog() 
+    public function article() 
     {
-        return view('single-blog');
+        return view('article');
     }    
 }
