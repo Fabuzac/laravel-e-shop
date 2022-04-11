@@ -21,6 +21,9 @@
         @foreach($orders as $order)        
         <div class="table-responsive order_details_table">    
             <h5>My Bill PDF:</h5>
+            @dump(\Cart::session($order->user_id))
+            @dump($order->products)
+            {{-- \Cart::session($order->user_id)->remove($order->products) --}}
             <span>
                 <a target="_blank" href="{{ route('pdf', $order->id) }}">{{ strtotime($order->created_at) }}.PDF</a>
             </span>          

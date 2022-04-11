@@ -42,9 +42,9 @@ class CheckoutController extends Controller
 
         $order = Order::latest()->first();
         $orderProduct = OrderProduct::where('order_id', $order->id)->get();
-                            
+
         // \Cart::remove($id);
-        //session()->forget('coupon');
+        // session()->forget('coupon');
 
         return view('confirmation', [
             'order' => $order,

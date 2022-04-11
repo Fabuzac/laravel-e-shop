@@ -154,12 +154,8 @@
 										<span> <i class="fas fa-heart"></i> </span>
 										<p class="hover-text">Wishlist</p>
 									</a>
-									<a href="#" class="social-info">
-										<span> <i class="fas fa-exchange-alt"></i> </span>
-										
-										<p class="hover-text">compare</p>
-									</a>
-									<a href="#" class="social-info">
+									
+									<a href="{{ route('shop.show', $product->slug) }}" class="social-info">
 										<span> <i class="fa fa-eye"></i> </span>
 										<p class="hover-text">view more</p>
 									</a>

@@ -57,9 +57,7 @@
 							<input type="hidden" name="name" value="{{ $product->name }}">				
 							<input type="hidden" name="price" value="{{ $product->price }}">				
 							<button class="primary-btn" type="submit">Add to Cart</button>
-						</form>						
-
-						<a class="icon_btn" href="#"><i class="fa fa-diamond"></i></a>
+						</form>
 						<a class="icon_btn" href="#"><i class="fa fa-heart"></i></a>
 					</div>
 				</div>
