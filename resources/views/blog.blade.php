@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <div class="blog_post">
-                                        <img src="img/blog/main-blog/m-blog-1.jpg" alt="">
+                                        <img src="{{ Voyager::image($article->image) }}" alt="">
                                         <div class="blog_details">
                                             <a href="{{ route('article', $article->slug) }}">
                                                 <h2>{{ $article->title }}</h2>
