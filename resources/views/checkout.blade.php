@@ -72,6 +72,7 @@
                                    placeholder="* Phone number" 
                                    id="number" 
                                    name="phone"
+                                   required
                             >
                         </div>
                         <div class="col-md-6 form-group p_star">

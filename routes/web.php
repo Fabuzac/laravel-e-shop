@@ -10,7 +10,6 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CouponsController;
 use App\Http\Controllers\CheckoutController;
 

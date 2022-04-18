@@ -17,13 +17,17 @@
 <!-- End Banner Area -->
 <div class="container my-5">
     <div class="orders">
-        <h2 class="text-center">Orders Details</h2>         
+        <h2 class="text-center">Orders Details</h2>     
+        @dump(Request::session()->get('4yTlTDKu3oJOfzD_cart_items'))     
+        @dump(Request::session()->get('coupon'))     
+        
+        {{-- Request::session()->pull('4yTlTDKu3oJOfzD_cart_items', '');    --}}
         @foreach($orders as $order)        
         <div class="table-responsive order_details_table">    
             <h5>My Bill PDF:</h5>
-            @dump(\Cart::session($order->user_id))
-            @dump($order->products)
-            {{-- \Cart::session($order->user_id)->remove($order->products) --}}
+            {{-- @dump(\Cart::session($order->user_id)) --}}
+            {{-- @dump($order->products) --}}   
+                 
             <span>
                 <a target="_blank" href="{{ route('pdf', $order->id) }}">{{ strtotime($order->created_at) }}.PDF</a>
             </span>          

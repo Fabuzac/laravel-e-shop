@@ -4,36 +4,28 @@ namespace App\Http\Controllers;
 
 use Stripe;
 use App\Models\Order;
-use App\Models\Coupon;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Support\Facades\Session;
+use App\Models\Coupon;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */    
-    
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    // Gere le paiements
     public function checkout() 
     {
         if (count(\Cart::getContent()) > 0) {    
             return view('checkout');
         }
         
-        return redirect()->route('home');        
-    }
+        return redirect()->route('home');
+    }    
 
-    // Sucess paiement
     public function success()
     {
         if(!session()->has('success')) {
@@ -43,8 +35,9 @@ class CheckoutController extends Controller
         $order = Order::latest()->first();
         $orderProduct = OrderProduct::where('order_id', $order->id)->get();
 
-        // \Cart::remove($id);
-        // session()->forget('coupon');
+        // CLEAN CART
+        session()->forget('4yTlTDKu3oJOfzD_cart_items');
+        session()->forget('coupon');
 
         return view('confirmation', [
             'order' => $order,
@@ -52,45 +45,16 @@ class CheckoutController extends Controller
         ]);
     }
 
-    // public function getTotalWithDiscount($total)
-    // {
-    //     session()->has('coupon') 
-    //     ? round($total - session()->get('coupon')['discount'], 2) * 100 
-    //     : $total * 100;
-    // }
-
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        // dd($request->all());
-
         $total = \Cart::getTotal();
 
+        // STRIPE CHARGE
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create ([
             'amount' => session()->has('coupon') 
-                        ? round($total - session()->get('coupon')['discount'], 2) * 100 
-                        : $total * 100,
+            ? round($total - session()->get('coupon')['discount'], 2) * 100 
+            : $total * 100,
             'currency' => 'EUR',
             'source' => $request->stripeToken,
             'description' => 'This is test payment',
@@ -100,6 +64,7 @@ class CheckoutController extends Controller
             ],                
         ]);        
         
+        // SAVE ORDER DB
         $order = Order::create([
             'user_id' => auth()->user()->id,
             'paiement_firstname' => $request->firstname,
@@ -112,11 +77,12 @@ class CheckoutController extends Controller
             'paiement_city' => $request->city,
             'paiement_postalcode' => $request->postalcode,
             'discount' => session()->get('coupon')['name'] ?? null,
-            'paiement_total' => session()->has('coupon') 
-                            ? round($total - session()->get('coupon')['discount'], 2) 
-                            : $total,
+            'paiement_total' => session()->has('coupon')
+            ? round($total - session()->get('coupon')['discount'], 2) 
+            : $total,
         ]);
 
+        // SAVE ORDER IN A PIVOT TABLE(ORDERPRODUCT)
         foreach(\Cart::getContent() as $product) {
             OrderProduct::create([
                 'order_id' => $order->id,
@@ -125,51 +91,8 @@ class CheckoutController extends Controller
             ]);
         };
            
-        return redirect()->route('checkout.success')->with('success', 'Payment Successful !');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()
+            ->route('checkout.success')
+            ->with('success', 'Payment Successful !');
     }
 }

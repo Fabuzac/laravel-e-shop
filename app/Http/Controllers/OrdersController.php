@@ -4,10 +4,6 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\Order;
-use App\Models\Product;
-use App\Models\OrderProduct;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 
 class OrdersController extends Controller
 {
