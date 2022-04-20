@@ -13,25 +13,25 @@ class RouteTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testAccessAdminWithGuestRole()
-    {
-        $response = $this->get('/admin/articles');
+    // public function testAccessAdminWithGuestRole()
+    // {
+    //     $response = $this->get('/admin/articles');
 
-        $response->assertRedirect('/login');
-    }
+    //     $response->assertRedirect('/login');
+    // }
 
-    public function testAccessAdminWithAdminRole()
-    {
-        $admin = User::create([            
-            'email' => 'admin@admin.com',
-            'name' => 'Admin',
-            'password' => Hash::make('123456789'),
-            'role' => User::ADMIN_ROLE,
-        ]);
+    // public function testAccessAdminWithAdminRole()
+    // {
+    //     $admin = User::create([            
+    //         'email' => 'admin@admin.com',
+    //         'name' => 'Admin',
+    //         'password' => Hash::make('123456789'),
+    //         'role' => User::ADMIN_ROLE,
+    //     ]);
 
-        $this->actingAs($admin);
+    //     $this->actingAs($admin);
 
-        $response = $this->get('/admin/articles');
-        $response->assertStatus(200);
-    }
+    //     $response = $this->get('/admin/articles');
+    //     $response->assertStatus(200);
+    // }
 }
