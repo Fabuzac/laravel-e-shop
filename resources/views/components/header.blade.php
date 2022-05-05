@@ -18,7 +18,7 @@
                 </button>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav menu_nav ml-auto">
+                    <ul class="nav navbar-nav menu_nav ml-auto">                        
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ route('home') }}">Home</a>
                         </li>
@@ -35,7 +35,7 @@
                         <li class="nav-item">
                             <div>
                                 <li class="navbar-nav ml-auto">                                    
-                                    @if (Auth::user())                                             
+                                    @if (Auth::user())                                                                                     
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{ route('orders') }}">Orders</a>
                                         </li>
@@ -50,6 +50,9 @@
                                             <form id="logout-form" method="POST" action="{{ route('logout') }}">
                                                 @csrf            
                                             </form>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#"><i class="fa fa-user"></i> Welcome <span class="text-primary">{{ Auth::user()->name }}</span></a>
+                                            </li>
                                         </li>
                                     @else        
                                         <li class="nav-item">

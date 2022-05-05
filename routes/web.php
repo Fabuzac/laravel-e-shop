@@ -1,7 +1,5 @@
 <?php
 
-use Stripe\Order;
-use App\Http\Controllers\DomPdf;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,8 +31,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/shop/{product}', [ShopController::class, 'show'])->name('shop.show');
 
-Route::get('/category', [HomeController::class, 'category'])->name('category');
-
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/elements', [HomeController::class, 'elements'])->name('elements');
 
@@ -52,14 +48,10 @@ Route::delete('/coupon', [CouponsController::class, 'destroy'])->name('coupon.de
 
 Route::get('/orders', [OrdersController::class, 'index'])->name('orders')->middleware('auth');
 Route::get('/pdf/{id}', [OrdersController::class, 'createPdf'])->name('pdf');
-
-Route::get('/thanks', [HomeController::class, 'thanks'])->name('thanks');
 Route::get('/tracking', [HomeController::class, 'tracking'])->name('tracking');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{article:slug}', [BlogController::class, 'show'])->name('article');
-
-// Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 
 //========
 // ADMIN =

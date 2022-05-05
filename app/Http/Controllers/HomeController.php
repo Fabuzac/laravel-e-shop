@@ -45,36 +45,11 @@ class HomeController extends Controller
         return view('contact');
     }
 
-    public function blog() 
-    {
-        return view('blog');
-    }
-
-    public function category() 
-    {
-        return view('category');
-    }
-
-    public function confirmation() 
-    {
-        return view('confirmation');
-    }   
-
-    public function thanks() 
-    {
-        return view('thanks');
-    }
-
     public function tracking() 
     {
         return view('tracking');
     }
-
-    public function elements() 
-    {
-        return view('elements');
-    }
-
+    
     public function article() 
     {
         return view('article');
