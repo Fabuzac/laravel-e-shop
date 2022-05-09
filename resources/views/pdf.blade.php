@@ -59,20 +59,29 @@
 		<thead style="background-color: lightgray;">
 			<tr>
 				<th>Description</th>
-				<th>Unit Price $</th>
 				<th>Quantity</th>
+				<th></th>
+				<th></th>
+				<th>Unit Price $</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach ($order->products as $product) 
 			<tr>             
 				<td>{{ $product->name }}</td>
+				<td align="center">{{ $product->pivot->quantity }}</td>
+				<th align="right"></th>
+				<th align="right"></th>
 				<td align="right">{{ $product->price }}</td>
-				<td align="right">{{ $product->pivot->quantity }}</td>
 			</tr>
 			@endforeach 
 		</tbody>
-		<tfoot>        
+		<tfoot>    
+			<tr>
+				<td colspan="3"></td>
+				<td align="right">Coupon</td>
+				<td align="right" class="gray">$ -100</td>
+			</tr>     
 			<tr>
 				<td colspan="3"></td>
 				<td align="right">Tax $</td>

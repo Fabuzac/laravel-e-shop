@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coupon;
 use PDF;
 use App\Models\Order;
+use App\Models\OrderProduct;
 
 class OrdersController extends Controller
 {
@@ -24,9 +26,9 @@ class OrdersController extends Controller
 
     public function createPdf($id)
     {
-
-        $order = Order::where('id', $id)->firstOrfail();
-
+        $order = Order::where('id', $id)->firstOrfail();        
+        // $couponValue = Order::where('orders', $orders->discount)->get();
+    
         $data = [            
             'order' => $order,
         ];

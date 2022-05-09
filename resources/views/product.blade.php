@@ -45,10 +45,20 @@
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
 						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-						 class="increase items-count" type="button"><i class="fa fa-chevron-up"></i></button>
-						<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-						 class="reduced items-count" type="button"><i class="fa fa-chevron-down"></i></button>
+						<button class="increase items-count" 
+								type="button" 
+								onclick="
+									var result = document.getElementById('sst'); 
+									var sst = result.value; if( !isNaN( sst )) result.value++;return false;">
+								<i class="fa fa-chevron-up"></i>
+						</button>
+						<button class="reduced items-count" 
+								type="button"
+								onclick="
+									var result = document.getElementById('sst'); 
+									var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;">
+								<i class="fa fa-chevron-down"></i>
+						</button>
 					</div>
 					<div class="card_area d-flex align-items-center">
 						<form action="{{ route('cart.store') }}" method="POST">			
@@ -72,15 +82,34 @@
 	<div class="container">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 			<li class="nav-item">
-				<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Description</a>
+				<a class="nav-link" 
+				   id="home-tab" 
+				   data-toggle="tab" 
+				   href="#home" 
+				   role="tab" 
+				   aria-controls="home" 
+				   aria-selected="true">Description
+				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-				 aria-selected="false">Specification</a>
+				<a class="nav-link" 
+				   id="profile-tab" 
+				   data-toggle="tab" 
+				   href="#profile" 
+				   role="tab" 
+				   aria-controls="profile"				 
+				   aria-selected="false">Specification
+				</a>
 			</li>			
 			<li class="nav-item">
-				<a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
-				 aria-selected="false">Reviews</a>
+				<a class="nav-link active" 
+				   id="review-tab" 
+				   data-toggle="tab" 
+				   href="#review" 
+				   role="tab" 
+				   aria-controls="review"
+				   aria-selected="false">Reviews
+				</a>
 			</li>
 		</ul>
 		<div class="tab-content" id="myTabContent">
@@ -174,9 +203,12 @@
 										<a class="reply_btn" href="#">Reply</a>
 									</div>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo
+								</p>
 							</div>
 							<div class="review_item reply">
 								<div class="media">
@@ -189,9 +221,12 @@
 										<a class="reply_btn" href="#">Reply</a>
 									</div>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo
+								</p>
 							</div>
 							<div class="review_item">
 								<div class="media">
@@ -204,9 +239,12 @@
 										<a class="reply_btn" href="#">Reply</a>
 									</div>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo
+								</p>
 							</div>
 						</div>
 					</div>
@@ -297,9 +335,12 @@
 										<i class="fa fa-star"></i>
 									</div>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo
+								</p>
 							</div>
 							<div class="review_item">
 								<div class="media">
@@ -315,9 +356,12 @@
 										<i class="fa fa-star"></i>
 									</div>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo
+								</p>
 							</div>
 							<div class="review_item">
 								<div class="media">
@@ -333,9 +377,12 @@
 										<i class="fa fa-star"></i>
 									</div>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+									commodo
+								</p>
 							</div>
 						</div>
 					</div>
@@ -383,7 +430,7 @@
 												  rows="1" 
 												  placeholder="Review" 
 												  onfocus="this.placeholder = '' " 
-												  onblur="this.placeholder = 'Review'"></textarea>
+												  onblur="this.placeholder = 'Review'">
 										</textarea>
 									</div>
 								</div>
