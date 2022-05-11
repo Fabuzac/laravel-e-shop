@@ -19,3 +19,11 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 }
+
+// assertTrue()
+// assertFalse()
+// assertEquals()
+// assertNull()
+// assertContains()
+// assertCount()
+// assertEmpty()
