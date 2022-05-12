@@ -30,7 +30,6 @@ class ModelTest extends TestCase
         $this->assertNotEquals($count, $newCount);
     }
 
-
     public function testInvalidRegistration()
     {
         $response = $this->post('/register', [

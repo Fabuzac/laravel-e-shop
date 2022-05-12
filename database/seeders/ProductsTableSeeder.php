@@ -24,7 +24,8 @@ class ProductsTableSeeder extends Seeder
                 'details' => $faker->sentence($nbWords = 20),
                 'price' => $faker->randomFloat($nbMaxDecimals = 2, $min=10, $max = 500), 
                 'description' => $faker->sentence($nbWords = 50, $variableNbWords = false),
-                'category_id' => Category::inRandomOrder()->first()->id,
+                'category_id' => Category::inRandomOrder()->first()->id,                
+                
             ]);
         }
     }

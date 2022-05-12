@@ -46,17 +46,21 @@
 						<label for="qty">Quantity:</label>
 						<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
 						<button class="increase items-count" 
-								type="button" 
+								type="button"
 								onclick="
 									var result = document.getElementById('sst'); 
-									var sst = result.value; if( !isNaN( sst )) result.value++;return false;">
+									var sst = result.value; 
+									if( !isNaN( sst )) var newValue = result.value++;
+									return false;">
 								<i class="fa fa-chevron-up"></i>
 						</button>
 						<button class="reduced items-count" 
 								type="button"
 								onclick="
 									var result = document.getElementById('sst'); 
-									var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;">
+									var sst = result.value; 
+									if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;
+									return false;">
 								<i class="fa fa-chevron-down"></i>
 						</button>
 					</div>
@@ -275,7 +279,6 @@
 												<i class="fa fa-star"></i> 01
 											</a>
 										</li>
-
 										<li>
 											<a href="#">4 Star 
 												<i class="fa fa-star"></i>
@@ -285,7 +288,6 @@
 												<i class="fa fa-star"></i> 01
 											</a>
 										</li>
-
 										<li>
 											<a href="#">3 Star 
 												<i class="fa fa-star"></i>
@@ -295,7 +297,6 @@
 												<i class="fa fa-star"></i> 01
 											</a>
 										</li>
-
 										<li>
 											<a href="#">2 Star 
 												<i class="fa fa-star"></i>
@@ -305,7 +306,6 @@
 												<i class="fa fa-star"></i> 05
 											</a>
 										</li>
-
 										<li>
 											<a href="#">1 Star 
 												<i class="fa fa-star"></i>

@@ -18,7 +18,7 @@ class OrdersController extends Controller
     public function index()
     {
         $user = auth()->user();
-        
+
         return view('orders', [
             'orders' => $user->order,               
         ]);
@@ -27,8 +27,7 @@ class OrdersController extends Controller
     public function createPdf($id)
     {
         $order = Order::where('id', $id)->firstOrfail();        
-        // $couponValue = Order::where('orders', $orders->discount)->get();
-    
+
         $data = [            
             'order' => $order,
         ];
