@@ -115,7 +115,7 @@
 								<td>																		
 									<li>
 										<a href="#">Discount {{ $order->discount }}
-											<span>- $ 200</span>
+											<span>- $ 00</span>
 										</a>
 									</li>								
 								</td>		                             
@@ -129,7 +129,7 @@
 									<h5></h5>
 								</td>
 								<td>
-									<p>Flat rate: $50.00</p>
+									<p>Flat rate: $00.00</p>
 								</td>
 							</tr>
 							<tr>

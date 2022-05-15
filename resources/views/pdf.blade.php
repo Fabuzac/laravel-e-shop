@@ -76,22 +76,25 @@
 			</tr>
 			@endforeach 
 		</tbody>
-		<tfoot>    
-			<tr>
-				<td colspan="3"></td>
-				<td align="right">Coupon</td>
-				<td align="right" class="gray">$ -100</td>
-			</tr>     
-			<tr>
-				<td colspan="3"></td>
-				<td align="right">Tax $</td>
-				<td align="right">00.00</td>
-			</tr>        
-			<tr>
-				<td colspan="3"></td>
-				<td align="right">Total $</td>
-				<td align="right" class="gray">$ {{ $order->paiement_total }}</td>
-			</tr>        
+		<tfoot>
+			@if($discount)			
+				<tr>
+					<td colspan="3"></td>
+					<td align="right">Subtotal</td>
+					<td align="right">$ {{ $subtotal }}</td>				
+				</tr>     
+				<tr>
+					<td colspan="3"></td>
+					<td align="right">Coupon</td>
+					<td align="right" class="gray">$ - {{ $discount->value }} </td>
+				</tr>  
+			@endif         
+				<tr>
+					<td colspan="3"></td>
+					<td align="right">Total</td>
+					<td align="right" class="gray">$ {{ $order->paiement_total }}</td>
+				</tr>
+			     
 		</tfoot>
 	</table>
 </body>
